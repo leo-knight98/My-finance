@@ -1,0 +1,30 @@
+.formCard {
+    width: 70%;
+    border: 1px solid rgb(213, 213, 213);
+    padding: 2rem;
+    border-radius: 2rem;
+    margin: 3rem;
+    transition: transform 0.5s ease;
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 8px;
+    }
+    
+}
+
+.formCard form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.inputGroup {
+    margin-top: 15px;
+    display: block;
+    width: 47%;
+}
+
+.inputGroup input, .inputGroup select {
+    width: 100%;
+    margin-top: 5px;
+}

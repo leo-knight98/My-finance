@@ -1,5 +1,7 @@
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
 import axios from "axios";
+import dotenv from 'dotenv';
+import jwt from 'jsonwebtoken';
 
 import styles from './Login.module.css'
 import useUserContext from "../../hooks/UserContext";
@@ -10,6 +12,7 @@ type Inputs = {
 }
 
 function Login() {
+    dotenv.config()
     const { login } = useUserContext()
     const {
         register,
@@ -34,14 +37,15 @@ function Login() {
           axios.request(options)
             .then((res) => {
                 if(res.data.loginOk) {
-                    login(res.data.username)
+                    const user = jwt.decode(process.env.TOKEN_KEY!)
+                    console.log(user)
                 } else {
                     alert('Incorrect username and/or password')
                 }
             })
     }
     return(
-        <>
+        <div className={styles.card}>
             <h1>Login</h1>
             <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
                 <input className={styles.inputLogin} type="text" placeholder="Username" {...register('username', {required: true})} />
@@ -50,7 +54,7 @@ function Login() {
                 {errors.password && <p>You must enter a password.</p>}
                 <button className={styles.loginButton} type="submit">Login</button>
             </form>
-        </>
+        </div>
     )
 }
 

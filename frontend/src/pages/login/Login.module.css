@@ -1,6 +1,19 @@
+.card {
+    width: 50%;
+    border: 1px solid rgb(213, 213, 213);
+    padding: 2rem;
+    border-radius: 2rem;
+    margin: 2rem auto;
+    transition: transform 0.5s ease;
+    &:hover {
+        transform: scale(1.1);
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 8px;
+    } 
+}
+
 .loginForm {
     display: block;
-    width: 50vw;
+    width: 100%;
     position: relative;
     margin: 20px auto;
 }

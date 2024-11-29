@@ -1,5 +1,7 @@
 import { Request, RequestHandler, Response } from 'express';
 import bcript from 'bcrypt'
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv'
 
 import { LoginSchema, AddUserSchema } from "../schemas/userSchemas"
 import ValidationError from '../models/ValidationError';
@@ -8,7 +10,10 @@ import UserData from '../config/types/UserData';
 import LoginError from '../models/LoginError';
 import RegisterData from '../config/types/RegisterData';
 
+dotenv.config()
+
 async function loginController(userData: UserData, res: Response) {
+    const token_key = process.env.TOKEN_KEY
     const { success, data: user, error } = LoginSchema.safeParse(userData)
     if(!success) {
         throw new ValidationError(error)
@@ -23,10 +28,10 @@ async function loginController(userData: UserData, res: Response) {
             if(!result) {
                 res.send({loginOk: false})
             } else {
+                const token = jwt.sign({userId: userReceived.id}, token_key!)
                 res.send({
                     loginOk: true,
-                    userId: userReceived.id,
-                    username: userReceived.username
+                    token: token
                 })
             }
         })

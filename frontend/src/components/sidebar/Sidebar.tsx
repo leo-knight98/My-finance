@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { MdDashboard } from "react-icons/md";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
-import { CiLogin, CiLogout } from "react-icons/ci";
+import { CiFilter, CiLogin, CiLogout } from "react-icons/ci";
 
 import styles from "./Sidebar.module.css"
 import useUserContext from "../../hooks/UserContext";
@@ -30,6 +30,7 @@ function Sidebar() {
                     <>
                         <li className={(isToggled) ? styles.listItem : styles.smallListItem}><NavLink to="/dashboard" className={styles.link}><i className={styles.listIcon}><MdDashboard /></i>{(isToggled ? 'Dashboard' : '')}</NavLink></li>
                         <li className={(isToggled) ? styles.listItem : styles.smallListItem}><NavLink to='/transaction' className={styles.link}><i className={styles.listIcon}><FaMoneyBillTransfer /></i>{(isToggled ? 'Transactions' : '')}</NavLink></li>
+                        <li className={(isToggled) ? styles.listItem : styles.smallListItem}><NavLink to='/categories' className={styles.link}><i className={styles.listIcon}><CiFilter /></i>{(isToggled ? 'Categories' : '')}</NavLink></li>
                         <li className={(isToggled) ? styles.listItem : styles.smallListItem}><a href="#" onClick={logout} className={styles.link}><i className={styles.listIcon}><CiLogout /></i>{(isToggled ? 'Logout' : '')}</a></li>
                     </>
                 ) : (

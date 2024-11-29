@@ -10,7 +10,6 @@ function Dashboard() {
             <Transaction title="Income" amount={15.700} extraInformation="Additional information"/>
             <Transaction title="Expense" amount={15.700} extraInformation="Additional information"/>
             <Transaction title="Total savings" amount={15.700} extraInformation="Additional information"/>
-            <Transaction title="Total savings" amount={15.700} extraInformation="Additional information"/>
         </section>
         </>
     )
