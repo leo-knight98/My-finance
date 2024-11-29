@@ -1,0 +1,37 @@
+.registerForm {
+    width: 50vw;
+    position: relative;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inputGroup {
+    width: 45%;
+    line-height: 1.5rem;
+    margin: 5px 10px;
+}
+
+.registerInput {
+    width: 100%;
+}
+
+.registerButton {
+    display: block;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 5px;
+    background-color: #0b5edc;
+    color: #c2d3ed;
+    cursor: pointer;
+}
+
+.registerButton:hover {
+    color: #0b5edc;
+    background-color: #c2d3ed;
+}
+
+.formError {
+    color: red;
+    font-size: 12px;
+}

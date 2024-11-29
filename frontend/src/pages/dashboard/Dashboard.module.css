@@ -1,0 +1,8 @@
+.transaction-card-wrapper {
+    color: rgb(0, 0, 106);
+    width: 80%;
+    margin: 3rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}

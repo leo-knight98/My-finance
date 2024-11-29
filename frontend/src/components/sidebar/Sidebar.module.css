@@ -1,0 +1,78 @@
+.sideBar {
+    background-color: #c2d3ed;
+    min-height: 100vh;
+    width: 20%;
+    padding: 30px 0 0 10px;
+}
+
+.sideBarNotToggled {
+    background-color: #c2d3ed;
+    min-height: 100vh;
+    padding: 30px 0 0 0;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 10px;
+    line-height: 30px;
+}
+
+.headerSide {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.navList {
+    overflow: hidden;
+    margin-left: 10px;
+}
+
+.listItem {
+    list-style-type: none;
+    margin: 15px 0;
+    padding: 5px 0px 5px 5px;
+    width: 100%;
+}
+
+.listIcon {
+    margin-right: 10px;
+}
+
+.smallListItem {
+    width: max-content;
+    margin: 15px auto;
+    padding: 5px;
+}
+
+.link {
+    width: max-content;
+    display: inline-block;
+    text-decoration: none;
+    color: #0b5edc;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.toggleSidebar {
+    background-color: #0b5edc;
+    border: none;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    color: #c2d3ed;
+    font-size: 1rem;
+    margin-right: 5px;
+}
+
+.toggleSidebar:hover {
+    background-color: #060a10;
+    color: #c2d3ed;
+    border: 1px solid #c2d3ed;
+}
+
