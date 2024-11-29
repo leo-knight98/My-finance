@@ -37,8 +37,7 @@ function Login() {
           axios.request(options)
             .then((res) => {
                 if(res.data.loginOk) {
-                    const user = jwt.decode(process.env.TOKEN_KEY!)
-                    console.log(user)
+                    login(res.data.username)
                 } else {
                     alert('Incorrect username and/or password')
                 }

@@ -28,10 +28,11 @@ async function loginController(userData: UserData, res: Response) {
             if(!result) {
                 res.send({loginOk: false})
             } else {
-                const token = jwt.sign({userId: userReceived.id}, token_key!)
+                //const token = jwt.sign({userId: userReceived.id}, token_key!)
                 res.send({
                     loginOk: true,
-                    token: token
+                    username: userReceived.username,
+                    userId: userReceived.id
                 })
             }
         })
