@@ -28,5 +28,8 @@
     "drizzle-kit": "^0.28.1",
     "morgan": "^1.10.0",
     "typescript": "^5.7.2"
+  },
+  "scripts": {
+    "start": "node ./dist/server.js"
   }
 }
