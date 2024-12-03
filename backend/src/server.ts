@@ -1,15 +1,26 @@
 import express, { NextFunction, Request, Response } from 'express'
+import cookieparser from 'cookie-parser'
 import cors from 'cors'
 import dotenv from 'dotenv'
+
 import HttpError from './models/HttpError'
-import transactionsRouter from './routes/transactions.routes'
 import { loginController, registerController } from './controllers/users.controllers'
+import { addCategoryController, getAllCategoriesController, deleteCategoryController } from './controllers/categories.controllers.ts'
 import ValidationError from './models/ValidationError'
 import LoginError from './models/LoginError'
+import userAuth from './middlewares/userAuth'
+import {ExtendedRequest} from "./config/types.ts";
+import { addTransactionController } from './controllers/transactions.controllers.ts'
+
+
 const app = express()
 dotenv.config()
 const PORT = process.env.PORT ?? 4321
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true,
+}))
+app.use(cookieparser())
 app.use(express.json())
 
 
@@ -23,11 +34,10 @@ app.get("/", (req, res) => {
     res.send()
 })
 
-//Enviar todas las peticiones /transactions al enrutador
-app.use("/transactions", transactionsRouter)
 
-app.get("/dashboard", (req, res) => {
-    res.send(['info'])
+
+app.get("/dashboard", userAuth, (req: ExtendedRequest, res) => {
+    res.send(req.user)
 })
 
 app.post("/login", (req, res) => {
@@ -40,9 +50,27 @@ app.post("/register", (req, res) => {
     registerController(user, res)
 })
 
-/*app.get("/users/:id", (req, res) => {
+app.post("/transactions", userAuth, (req: ExtendedRequest, res) => {
+    addTransactionController(req.body, req.user!.userId, res)
+})
 
-})*/
+app.get("/categories", userAuth, (req: ExtendedRequest, res) => {
+    getAllCategoriesController(req.user!.userId, res)
+})
+
+app.post("/categories", userAuth, (req: ExtendedRequest, res) => {
+    const category = {
+        user_id: req.user!.userId,
+        name: req.body.name,
+        type: req.body.type
+    }
+    addCategoryController(category, res)
+})
+
+app.get("/categories/delete", userAuth, (req: ExtendedRequest, res) => {
+    const id = Number(req.query.id)
+    deleteCategoryController(req.user!.userId, id, res)
+})
 
 app.use((req, res) => {
     throw new HttpError(404, "Pagina no encontrada")

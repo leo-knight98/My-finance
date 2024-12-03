@@ -27,7 +27,8 @@ export const transactions = pgTable('transactions', {
 	type: categoriesEnum(),
 	category_id: integer().references(() => categories.id, {onDelete: "cascade", onUpdate: "cascade"}),
 	date: date().defaultNow(),
-	description: varchar({length: 150})
+	description: varchar({length: 150}),
+	amount: integer().notNull()
 })
 export const goals = pgTable('goals', {
 	id: serial().primaryKey(),

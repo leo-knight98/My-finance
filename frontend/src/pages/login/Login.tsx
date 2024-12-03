@@ -1,6 +1,5 @@
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form"
-import axios from "axios";
-import dotenv from 'dotenv';
+import axios, { AxiosRequestConfig } from "axios";
 import jwt from 'jsonwebtoken';
 
 import styles from './Login.module.css'
@@ -12,7 +11,6 @@ type Inputs = {
 }
 
 function Login() {
-    dotenv.config()
     const { login } = useUserContext()
     const {
         register,
@@ -27,21 +25,19 @@ function Login() {
         user.append('username', username)
         user.append('password', password)
 
-        const options = {
-            method: 'POST',
-            url: 'http://localhost:4321/login',
+        const options: AxiosRequestConfig = {
             params: {'': ''},
             headers: {'content-type': 'application/json'},
-            data: user,
-          };
-          axios.request(options)
-            .then((res) => {
-                if(res.data.loginOk) {
-                    login(res.data.username)
-                } else {
-                    alert('Incorrect username and/or password')
-                }
-            })
+            withCredentials: true,
+        };
+        axios.post('http://localhost:4321/login', user, options)
+        .then((res) => {
+            if(res.data.loginOk) {
+                login(res.data.username)
+            } else {
+                alert('Incorrect username and/or password')
+            }
+        })
     }
     return(
         <div className={styles.card}>

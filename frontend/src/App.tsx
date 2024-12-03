@@ -1,4 +1,5 @@
 import UserProvider from './contexts/UserProvider';
+import CategoryProvider from './contexts/CategoryProvider';
 import AppRoutes from './components/AppRoutes';
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -10,7 +11,9 @@ function App() {
       <Sidebar />
         <div className='content'>
             <Header />
-            <AppRoutes />
+            <CategoryProvider>
+              <AppRoutes />
+            </CategoryProvider>
         </div>
       </UserProvider>
     </>

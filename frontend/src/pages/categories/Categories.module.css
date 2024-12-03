@@ -19,3 +19,44 @@
 .addCategory {
     width: 40%;
 }
+
+.inputGroup {
+    margin-top: 15px;
+    display: block;
+    width: 95%;
+}
+
+.inputGroup input, .inputGroup select {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 5px;
+    margin-top: 10px;
+    background-color: #0b5edc;
+    color: #c2d3ed;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: #0b5edc;
+    background-color: #c2d3ed;
+}
+
+.categoriesTable {
+    width: 100%;
+    border: 1px solid black;
+}
+
+.categoriesTable th {
+    text-align: left;
+    background-color: #c2d3ed;
+}
+
+.categoriesTable td, th {
+    border: 1px solid black;
+    padding: 5px;
+}

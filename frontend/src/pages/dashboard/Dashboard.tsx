@@ -1,7 +1,18 @@
+import { useEffect } from "react";
+import useCategoryContext from "../../hooks/CategoryContext";
 import Balance from "../../components/balance/Balance";
 import Transaction from "../../components/Transaction/Transaction";
 import styles from './Dashboard.module.css'
 function Dashboard() {
+    const categoryContext = useCategoryContext()
+    useEffect(() => {
+        fetch('http://localhost:4321/dashboard', {
+            credentials: 'include'
+        })
+        .then((res) => res.json())
+        categoryContext.getAllCategories()
+    })
+
     return (
         <>
             <Balance />

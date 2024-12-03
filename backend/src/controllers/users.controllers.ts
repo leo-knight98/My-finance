@@ -6,15 +6,14 @@ import dotenv from 'dotenv'
 import { LoginSchema, AddUserSchema } from "../schemas/userSchemas"
 import ValidationError from '../models/ValidationError';
 import { login, registerUser } from '../models/UserModel';
-import UserData from '../config/types/UserData';
+import {LoginData, RegisterData} from '../config/types.ts';
 import LoginError from '../models/LoginError';
-import RegisterData from '../config/types/RegisterData';
 
 dotenv.config()
 
-async function loginController(userData: UserData, res: Response) {
+async function loginController(LoginData: LoginData, res: Response) {
     const token_key = process.env.TOKEN_KEY
-    const { success, data: user, error } = LoginSchema.safeParse(userData)
+    const { success, data: user, error } = LoginSchema.safeParse(LoginData)
     if(!success) {
         throw new ValidationError(error)
     }
@@ -28,12 +27,21 @@ async function loginController(userData: UserData, res: Response) {
             if(!result) {
                 res.send({loginOk: false})
             } else {
-                //const token = jwt.sign({userId: userReceived.id}, token_key!)
-                res.send({
-                    loginOk: true,
+                const user = {
                     username: userReceived.username,
                     userId: userReceived.id
+                }
+                const token = jwt.sign(user, token_key!, {
+                    expiresIn: "1d"
                 })
+                res.cookie("access_token", token, {
+                    httpOnly: true,
+                    maxAge: 60 * 60 * 24,
+                    sameSite: "none",
+                    secure: true
+                })
+                const userToSend = {...user, loginOk: true}
+                res.send(userToSend)
             }
         })
     }
