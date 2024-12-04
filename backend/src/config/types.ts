@@ -1,5 +1,11 @@
 import { Request } from "express";
 
+enum type {
+    income = 'income',
+    expense = 'expense',
+    debt = 'debt'
+}
+
 type LoginData = {
     username: string,
     password: string
@@ -23,11 +29,11 @@ type RegisterData = {
 type CategoryData = {
     user_id: number,
     name: string,
-    type: 'income | expense | debt'
+    type: type
 }
 
 type TransactionData = {
-    type: 'income | expense | debt',
+    type: type,
     category: number,
     date: string,
     description: string,
