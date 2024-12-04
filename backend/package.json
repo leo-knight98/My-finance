@@ -30,6 +30,7 @@
     "typescript": "^5.7.2"
   },
   "scripts": {
-    "start": "node ./dist/server.js"
+    "build": "npm i",
+    "start": "ts-node -r tsconfig-paths/register src/index.ts"
   }
 }
