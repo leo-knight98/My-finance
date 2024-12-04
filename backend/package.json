@@ -30,7 +30,7 @@
     "typescript": "^5.7.2"
   },
   "scripts": {
-    "build": "npm i && npm run build",
+    "build": "npm run build",
     "start": "npm run start"
   }
 }
