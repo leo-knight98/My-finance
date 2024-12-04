@@ -23,11 +23,11 @@ type RegisterData = {
 type CategoryData = {
     user_id: number,
     name: string,
-    type: '"income" | "expense" | "debt"'
+    type: 'income | expense | debt'
 }
 
 type TransactionData = {
-    type: '"income" | "expense" | "debt"',
+    type: 'income | expense | debt',
     category: number,
     date: string,
     description: string,
