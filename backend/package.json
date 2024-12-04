@@ -30,7 +30,7 @@
     "typescript": "^5.7.2"
   },
   "scripts": {
-    "build": "npm i",
-    "start": "ts-node -r tsconfig-paths/register src/index.ts"
+    "build": "npm i && npm run build",
+    "start": "npm run start"
   }
 }
