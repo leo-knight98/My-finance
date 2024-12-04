@@ -4,11 +4,7 @@ import db from "../db";
 import { categories } from "../db/schema";
 
 async function addCategory(category: CategoryData) {
-    const insert = await db.insert(categories).values({
-        user_id: category.user_id as any,
-        name: category.name as any,
-        type: category.type as any
-    }).returning()
+    const insert = await db.insert(categories).values(category).returning()
     return insert
 }
 
