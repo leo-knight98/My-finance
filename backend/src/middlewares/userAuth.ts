@@ -1,7 +1,7 @@
 import { Response, NextFunction } from "express";
 import HttpError from "../models/HttpError";
 import jwt, { JwtPayload } from 'jsonwebtoken'
-import {ExtendedRequest, UserData} from "../config/types.ts";
+import {ExtendedRequest, UserData} from "../config/types";
 
 function userAuth(req: ExtendedRequest, res: Response, next: NextFunction) {
     const token = req.cookies.access_token

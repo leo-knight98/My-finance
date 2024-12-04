@@ -6,7 +6,7 @@ import dotenv from 'dotenv'
 import { LoginSchema, AddUserSchema } from "../schemas/userSchemas"
 import ValidationError from '../models/ValidationError';
 import { login, registerUser } from '../models/UserModel';
-import {LoginData, RegisterData} from '../config/types.ts';
+import {LoginData, RegisterData} from '../config/types';
 import LoginError from '../models/LoginError';
 
 dotenv.config()

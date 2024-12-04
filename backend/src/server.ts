@@ -5,12 +5,12 @@ import dotenv from 'dotenv'
 
 import HttpError from './models/HttpError'
 import { loginController, registerController } from './controllers/users.controllers'
-import { addCategoryController, getAllCategoriesController, deleteCategoryController } from './controllers/categories.controllers.ts'
+import { addCategoryController, getAllCategoriesController, deleteCategoryController } from './controllers/categories.controllers'
 import ValidationError from './models/ValidationError'
 import LoginError from './models/LoginError'
 import userAuth from './middlewares/userAuth'
 import {ExtendedRequest} from "./config/types.ts";
-import { addTransactionController } from './controllers/transactions.controllers.ts'
+import { addTransactionController } from './controllers/transactions.controllers'
 
 
 const app = express()
