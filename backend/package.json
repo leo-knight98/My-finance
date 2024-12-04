@@ -29,8 +29,9 @@
     "morgan": "^1.10.0",
     "typescript": "^5.7.2"
   },
+  "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "ts-node-dev app.ts"
+    "build": "npm install && tsc",
+    "start": "node index.js"
   }
 }
