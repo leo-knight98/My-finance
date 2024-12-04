@@ -19,12 +19,12 @@ export const categories = pgTable('categories', {
 	id: serial().primaryKey(),
 	user_id: integer().references(() => users.id, {onDelete: "cascade", onUpdate: "cascade"}),
 	name: varchar({length: 50}),
-	type: categoriesEnum(),
+	type: categoriesEnum().notNull(),
 })
 export const transactions = pgTable('transactions', {
 	id: serial().primaryKey(),
 	user_id: integer().references(() => users.id, {onDelete: "cascade", onUpdate: "cascade"}),
-	type: categoriesEnum(),
+	type: categoriesEnum().notNull(),
 	category_id: integer().references(() => categories.id, {onDelete: "cascade", onUpdate: "cascade"}),
 	date: date().defaultNow(),
 	description: varchar({length: 150}),
