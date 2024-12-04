@@ -1,13 +1,7 @@
 import {z} from 'zod'
 
-enum transactionType {
-    income = 'income',
-    expense = 'expense',
-    debt = 'debt'
-}
-
 const AddTransactionSchema = z.object({
-    type: z.nativeEnum(transactionType),
+    type: z.enum(['income', 'expense', 'debt']),
     category: z.coerce.number(),
     date: z.string(),
     description: z.string(),
