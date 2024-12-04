@@ -9,7 +9,7 @@ import { addCategoryController, getAllCategoriesController, deleteCategoryContro
 import ValidationError from './models/ValidationError'
 import LoginError from './models/LoginError'
 import userAuth from './middlewares/userAuth'
-import {ExtendedRequest} from "./config/types.ts";
+import {ExtendedRequest} from "./config/types";
 import { addTransactionController } from './controllers/transactions.controllers'
 
 
