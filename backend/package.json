@@ -32,6 +32,6 @@
   "main": "index.js",
   "scripts": {
     "build": "npm install && tsc",
-    "start": "node index.js"
+    "start": "./dist/index.js"
   }
 }
