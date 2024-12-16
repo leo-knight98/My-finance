@@ -1,9 +1,9 @@
 import { useForm, SubmitHandler, FieldValues, UseFormRegisterReturn } from "react-hook-form";
 import styles from './Register.module.css';
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Loading from "../loading/Loading";
+import axiosClient from "../../config/axiosClient";
 
 type Inputs = {
     name: string;
@@ -68,7 +68,7 @@ function Register() {
                 headers: { 'content-type': 'application/json' },
             };
 
-            const res = await axios.post('http://localhost:4321/register', data, options);
+            const res = await axiosClient.post('/register', data, options);
 
             if (res.status === 200 && res.data[0]?.insertedId) {
                 setErrorStatus(undefined);

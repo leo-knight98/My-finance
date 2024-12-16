@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, ReactNode, useState } from "react";
+import axiosClient from "../config/axiosClient";
 
 type Goal = {
     created_at: string,
@@ -43,7 +44,7 @@ const GoalContext = createContext<GoalContext | null>(null)
 function GoalProvider({children}: GoalProviderProps) {
     const [goals, setGoals] = useState<Goal[]>([])
     function getAllGoals() {
-        axios.get('http://localhost:4321/goals', {
+        axiosClient.get('/goals', {
             withCredentials: true
         })
         .then((res) => {
@@ -51,7 +52,7 @@ function GoalProvider({children}: GoalProviderProps) {
         })
     }
     function addGoal(goalToAdd: GoalAdded) {
-        axios.post('http://localhost:4321/goals', goalToAdd, {
+        axiosClient.post('/goals', goalToAdd, {
             params: {'': ''},
             headers: {'content-type': 'application/json'},
             withCredentials: true,
@@ -61,7 +62,7 @@ function GoalProvider({children}: GoalProviderProps) {
         })
     }
     function deleteGoal(id: number) {
-        axios.get(`http://localhost:4321/goals/delete?id=${id}`, {
+        axiosClient.get(`/goals/delete?id=${id}`, {
             withCredentials: true
         })
         .then((res) => {
@@ -72,7 +73,7 @@ function GoalProvider({children}: GoalProviderProps) {
         })
     }
     function editGoal(goalToEdit: GoalToEdit) {
-        axios.post('http://localhost:4321/goals/edit', goalToEdit, {
+        axiosClient.post('/goals/edit', goalToEdit, {
             params: {'': ''},
             headers: {'content-type': 'application/json'},
             withCredentials: true,

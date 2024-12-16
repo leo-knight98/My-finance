@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
 import styles from './Debts.module.css'
-import axios from 'axios'
+import axiosClient from '../../config/axiosClient'
 
 type Inputs = {
     contact_name: string,
@@ -25,9 +25,7 @@ function Debts() {
     const [debts, setDebts] = useState<Debt[]>([])
     useEffect(() => {
         if(debts.length === 0) {
-            axios.get('http://localhost:4321/debts', {
-                withCredentials: true
-            })
+            axiosClient.get('/debts')
             .then((res) => {
                 setDebts(res.data)
             })
@@ -49,11 +47,10 @@ function Debts() {
             status: data.status
         }
         const options = {
-            withCredentials: true,
             params: {'': ''},
             headers: {'content-type': 'application/json'}
         }
-        axios.post('http://localhost:4321/debts', debt, options)
+        axiosClient.post('/debts', debt, options)
         .then((data) => {
             setDebts([...debts, data.data[0]])
         })

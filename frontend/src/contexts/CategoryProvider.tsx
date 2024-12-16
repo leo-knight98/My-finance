@@ -1,5 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
-import axios, { AxiosRequestConfig } from "axios";
+import { AxiosRequestConfig } from "axios";
+import axiosClient from "../config/axiosClient";
 
 type Category = {
     id: number,
@@ -29,9 +30,8 @@ function CategoryProvider({children}: CategoryProviderProps) {
     const [categories, setCategories] = useState<Category[]>([])
     
     function getAllCategories() {
-        axios.get('https://my-finance-web.onrender.com/categories', {
-            withCredentials: true
-        }).then((data) => {
+        axiosClient.get('/categories')
+        .then((data) => {
             const categoriesData = data.data
             setCategories(categoriesData)
         })
@@ -43,14 +43,14 @@ function CategoryProvider({children}: CategoryProviderProps) {
             headers: {'content-type': 'application/json'},
             withCredentials: true,
         }
-        axios.post('http://localhost:4321/categories', data, options)
+        axiosClient.post('/categories', data, options)
         .then((res) => {
             setCategories([...categories, res.data[0]])
         })
     }
 
     function deleteCategory(id: number) {
-        axios.get(`http://localhost:4321/categories/delete?id=${id}`, {withCredentials: true})
+        axiosClient.get(`/categories/delete?id=${id}`, {withCredentials: true})
         .then((res) => {
             if(res.data.deletedOk) {
                 const newCategories = categories.filter(element => element.id !== id)

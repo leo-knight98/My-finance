@@ -1,5 +1,5 @@
-import axios from "axios"
 import { createContext, ReactNode, useState } from "react"
+import axiosClient from "../config/axiosClient"
 
 type TransactionType = {
     amount: number
@@ -34,16 +34,13 @@ const TransactionContext = createContext<TransactionContext | null>(null)
 function TransactionProvider({children}: TransactionProviderProps) {
     const [transactions, setTransactions] = useState<TransactionType[]>([])
     function getAllTransactions() {
-        axios.get('http://localhost:4321/transactions', {
-            withCredentials: true
-        })
+        axiosClient.get('/transactions')
         .then((data) => {
             setTransactions(data.data)
         })
     }
     function addTransaction(transaction: TransactionData) {
-        axios.post('http://localhost:4321/transactions', transaction, {
-            withCredentials: true,
+        axiosClient.post('/transactions', transaction, {
             params: {'': ''},
             headers: {'content-type': 'application/json'},
         })
@@ -53,7 +50,7 @@ function TransactionProvider({children}: TransactionProviderProps) {
         })
     }
     function deleteTransaction(id: number) {
-        axios.get(`http://localhost:4321/transactions/delete?id=${id}`, {withCredentials: true})
+        axiosClient.get(`/transactions/delete?id=${id}`)
         .then((res) => {
             if(res.data.deletedOk) {
                 const newTransactions = transactions.filter(element => element.id !== id)
