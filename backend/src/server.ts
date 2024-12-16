@@ -19,7 +19,7 @@ const app = express()
 dotenv.config()
 const PORT = process.env.PORT ?? 4321
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: 'https://my-finance-red.vercel.app',
     credentials: true,
 }))
 app.use(cookieparser())
