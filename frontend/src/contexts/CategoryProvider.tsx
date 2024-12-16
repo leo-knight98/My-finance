@@ -29,7 +29,7 @@ function CategoryProvider({children}: CategoryProviderProps) {
     const [categories, setCategories] = useState<Category[]>([])
     
     function getAllCategories() {
-        axios.get('http://localhost:4321/categories', {
+        axios.get('https://my-finance-web.onrender.com/categories', {
             withCredentials: true
         }).then((data) => {
             const categoriesData = data.data
