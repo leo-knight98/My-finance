@@ -1,8 +1,6 @@
 import FormDialog from '../../components/formDialog/FormDialog'
 import styles from './Goals.module.css'
 import Goal from '../../components/goal/Goal'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
 import UseGoalContext from '../../hooks/GoalContext'
 
 type Goal = {
@@ -23,11 +21,6 @@ type GoalAdded = {
 
 function Goals() {
     const context = UseGoalContext()
-    useEffect(() => {
-        if(context.goals.length === 0) {
-            context.getAllGoals()
-        }
-    }, [])
     function addGoal(goal: GoalAdded) {
         context.addGoal(goal)
     }
