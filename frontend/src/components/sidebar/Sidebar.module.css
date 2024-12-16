@@ -3,13 +3,18 @@
   background: linear-gradient(135deg, rgba(157, 102, 239, 0.9), rgba(162, 119, 212, 0.9)); /* Degradado vibrante */
   color: white;
   min-height: 100vh;
-  width: 250px; /* Ancho fijo para escritorio */
+  width: clamp(200px, 20vw, 300px); /* Ancho dinámico */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 20px; /* Espaciado más generoso */
+  padding: 22px; /* Espaciado más generoso */
   transition: all 0.3s ease; /* Transición suave para cambios */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra más difusa y profunda */
+  will-change: transform, box-shadow;
+}
+
+.sidebar:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15), 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* Contenedor del logo */
@@ -17,22 +22,45 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
-  margin-bottom: 20px; /* Separación del logo del contenido */
-}
+  width: 100%;
+  height: 13%;
+  margin: 0 auto;
+  }
 
 .logo {
   height: 60px;
   width: 60px;
-  border-radius: 50%;
   object-fit: cover;
   transition: all 0.3s ease; /* Transición suave para cambios en el tamaño */
-  border: 3px solid rgba(255, 255, 255, 0.3); /* Borde sutil alrededor del logo */
+}
+
+@keyframes rotar {
+  0% {
+    transform: rotate(0deg); /* Empieza sin rotación */
+  }
+  33% {
+    transform: rotate(120deg); /* Rotación de 120 grados */
+  }
+  66% {
+    transform: rotate(240deg); /* Rotación de 240 grados */
+  }
+  100% {
+    transform: rotate(360deg); /* Rotación final de 360 grados (vuelta completa) */
+  }
+}
+
+.logo:hover {
+  transform: scale(1.5); /* Escalado al pasar el ratón */
+  background-color: #f0f0f0; /* Cambio de color de fondo */
+  animation: rotar 3s ease-in-out 3; /* Animación de rotación que dure 3 segundos y se repita 3 veces */
+  transition: transform 0.4s ease, background-color 0.4s ease; /* Transiciones suaves para el resto de los efectos */
 }
 
 /* Contenedor de navegación */
 .navContainer {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .navList {
@@ -42,15 +70,25 @@
 }
 
 .navItem {
-  margin: 12px 0; /* Espaciado más amplio entre elementos */
-  transition: transform 0.2s ease-in-out;
+  margin: 8px 0; /* Espaciado más amplio entre elementos */
+  transition: all 0.3s ease;
 }
 
-/* Efecto de hover en las secciones */
 .navItem:hover {
   background-color: rgba(162, 119, 212, 0.8); /* Fondo más suave y menos saturado */
   transform: scale(1.05); /* Efecto de escalado más notorio para interactividad */
   border-radius: 8px; /* Bordes redondeados en hover */
+}
+
+.navItem:active {
+  transform: scale(0.98); /* Simula el efecto táctil */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navItem.active {
+  background-color: rgba(122, 90, 236, 0.9); /* Color destacado */
+  border-left: 4px solid #fff; /* Indicador visual de posición */
+  transform: scale(1.05);
 }
 
 .link {
@@ -60,20 +98,28 @@
   color: white;
   padding: 12px 15px; /* Mejor acolchado para los enlaces */
   border-radius: 8px; /* Bordes redondeados en los enlaces */
-  transition: background-color 0.2s ease, transform 0.2s ease, padding 0.2s ease;
+  transition: all 0.3s ease;
 }
 
-/* Estilo hover en los links */
 .link:hover {
   background-color: #7a5aec; /* Mantiene el efecto hover con un color ligeramente más cálido */
   transform: scale(1.05);
   padding-left: 20px; /* Expansión ligera al pasar el ratón */
 }
 
+.link:focus {
+  outline: 2px #7a5aec;
+  outline-offset: 3px;
+}
+
 .icon {
   margin-right: 15px; /* Aumenté el espacio entre el icono y el texto */
   font-size: 1.5rem; /* Iconos ligeramente más grandes */
   transition: transform 0.3s ease, font-size 0.3s ease;
+}
+
+.icon:hover {
+  transform: rotate(10deg) scale(1.1);
 }
 
 .linkText {
@@ -91,7 +137,7 @@
   padding: 12px;
   width: 100%;
   text-align: left;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .navItem button:hover {
@@ -113,6 +159,11 @@
 
   .icon {
     font-size: 1.8rem; /* Aumenté el tamaño de los iconos en móviles */
+    margin: 0; /* Sin margen lateral en modo comprimido */
+  }
+
+  .navContainer {
+    align-items: center; /* Centrar los iconos verticalmente */
   }
 
   .navItem {
@@ -122,7 +173,7 @@
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 250px;
+    width: clamp(200px, 20vw, 300px); /* Mantiene el ancho dinámico */
     padding: 20px;
   }
 }

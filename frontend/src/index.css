@@ -53,7 +53,8 @@ table {
 }
 
 li:has(> a.active) {
-    background-color: #0b5edc;
+    background-color: #7a12a6;
+	border-radius: 8px;
 }
 
 a.active {
