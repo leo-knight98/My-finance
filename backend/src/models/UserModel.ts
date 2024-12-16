@@ -1,6 +1,6 @@
 import db from "../db";
 import { and, eq } from "drizzle-orm";
-import {LoginData, RegisterData} from '../config/types.ts'
+import {LoginData, RegisterData} from '../config/types'
 import { users } from "../db/schema";
 import { pgTable } from "drizzle-orm/pg-core";
 

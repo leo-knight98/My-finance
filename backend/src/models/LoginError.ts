@@ -1,8 +1,8 @@
 class LoginError extends Error {
-    statusCode: 400
-    message: string
-    constructor(message) {
+    statusCode
+    constructor(message: string) {
         super(message)
+        this.statusCode = 400
     }
 }
 

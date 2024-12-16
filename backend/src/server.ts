@@ -5,14 +5,14 @@ import dotenv from 'dotenv'
 
 import HttpError from './models/HttpError'
 import { loginController, registerController } from './controllers/users.controllers'
-import { addCategoryController, getAllCategoriesController, deleteCategoryController } from './controllers/categories.controllers.ts'
+import { addCategoryController, getAllCategoriesController, deleteCategoryController } from './controllers/categories.controllers'
 import ValidationError from './models/ValidationError'
 import LoginError from './models/LoginError'
 import userAuth from './middlewares/userAuth'
-import {ExtendedRequest} from "./config/types.ts";
-import { addTransactionController, getAllTransactionsController, deleteTransactionController } from './controllers/transactions.controllers.ts'
-import { addDebtController, getAllDebtsController } from './controllers/debts.controllers.ts'
-import { addGoalController, getAllGoalsController, deleteGoalController, editGoalController } from './controllers/goals.controller.ts'
+import {ExtendedRequest} from "./config/types";
+import { addTransactionController, getAllTransactionsController, deleteTransactionController } from './controllers/transactions.controllers'
+import { addDebtController, getAllDebtsController } from './controllers/debts.controllers'
+import { addGoalController, getAllGoalsController, deleteGoalController, editGoalController } from './controllers/goals.controller'
 
 
 const app = express()
