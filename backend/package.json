@@ -31,7 +31,7 @@
   "main": "./build/src/server.js",
   "scripts": {
     "build": "npm install && tsc",
-    "start": "./build/src/server.js"
+    "start": "node ./build/src/server.js"
   },
   "bin" : {
     "execute" : "./build/src/server.js"
