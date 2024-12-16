@@ -15,7 +15,7 @@ function Sidebar() {
         <div className={styles.sidebar}>
             {/* Contenedor del logo */}
             <div className={styles.logoContainer}>
-                <img src="/logo.jpg" alt="Logo" className={styles.logo} />
+                <img src="/logo.png" alt="Logo" className={styles.logo} />
             </div>
 
             {/* Menú de navegación */}
