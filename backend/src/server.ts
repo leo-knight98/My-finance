@@ -2,6 +2,7 @@ import express, { NextFunction, Request, Response } from 'express'
 import cookieparser from 'cookie-parser'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import morgan from 'morgan'
 
 import HttpError from './models/HttpError'
 import { loginController, registerController } from './controllers/users.controllers'
@@ -18,11 +19,13 @@ import { addGoalController, getAllGoalsController, deleteGoalController, editGoa
 const app = express()
 dotenv.config()
 const PORT = process.env.PORT ?? 4321
-app.use(cors({
-    origin: 'https://my-finance-red.vercel.app',
-    credentials: true,
-}))
+app.use(cors())
+// app.use(cors({
+//     origin: 'https://my-finance-red.vercel.app',
+//     credentials: true,
+// }))
 app.use(cookieparser())
+app.use(morgan('dev'))
 app.use(express.json())
 
 
