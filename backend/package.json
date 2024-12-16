@@ -30,7 +30,7 @@
   },
   "main": "./build/src/server.js",
   "scripts": {
-    "build": "npm install && tsc",
+    "build": "rm -rf ./node_modules && npm install && tsc",
     "start": "./build/src/server.js"
   }
 }
