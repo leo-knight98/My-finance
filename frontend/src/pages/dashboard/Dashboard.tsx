@@ -4,6 +4,7 @@ import useTransactionContext from "../../hooks/TransactionContext";
 import Balance from "../../components/balance/Balance";
 import Transaction from "../../components/Transaction/Transaction";
 import styles from './Dashboard.module.css'
+import UseGoalContext from "../../hooks/GoalContext";
 
 type numbers = {
     totalBalance: number,
@@ -15,6 +16,7 @@ type numbers = {
 function Dashboard() {
     const categoryContext = useCategoryContext()
     const transactionContext = useTransactionContext()
+    const goalContext = UseGoalContext()
     const [numbers, setNumbers] = useState<numbers>({
         totalBalance: 0,
         totalIncome: 0,
@@ -23,12 +25,14 @@ function Dashboard() {
     })
 
     useEffect(() => {
-
         if (categoryContext.categories.length === 0) {
             categoryContext.getAllCategories()
         }
         if (transactionContext.transactions.length === 0) {
             transactionContext.getAllTransactions()
+        }
+        if (goalContext.goals.length === 0) {
+            goalContext.getAllGoals()
         }
     }, [])
 
