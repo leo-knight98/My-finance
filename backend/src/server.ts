@@ -3,6 +3,7 @@ import cookieparser from 'cookie-parser'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import morgan from 'morgan'
+import 'express-async-errors';
 
 import HttpError from './models/HttpError'
 import { loginController, registerController } from './controllers/users.controllers'
