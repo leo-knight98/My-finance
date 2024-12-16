@@ -12,6 +12,9 @@ import LoginError from '../models/LoginError';
 dotenv.config()
 
 async function loginController(LoginData: LoginData, res: Response) {
+    res.header(
+        'Access-Control-Allow-Origin', 'https://my-finance-red.vercel.app/*'
+    )
     const token_key = process.env.TOKEN_KEY
     const { success, data: user, error } = LoginSchema.safeParse(LoginData)
     if(!success) {
