@@ -14,7 +14,6 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.36.4",
-    "express": "^4.21.1",
     "express-fileupload": "^1.5.1",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.11.4",
@@ -28,5 +27,11 @@
     "drizzle-kit": "^0.28.1",
     "morgan": "^1.10.0",
     "typescript": "^5.7.2"
+  },
+  "main": "server.js",
+  "scripts": {
+    "build": "npm install && tsc",
+    "start": "./build/src/server.js"
   }
 }
+
