@@ -42,6 +42,7 @@ async function getTotalSaved(user: number) {
     }).from(goals).where(
         eq(goals.user_id, user)
     )
+    console.log(total)
     return total
 }
 
