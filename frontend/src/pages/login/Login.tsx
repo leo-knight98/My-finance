@@ -5,6 +5,7 @@ import axios, { AxiosRequestConfig } from "axios";
 import styles from './Login.module.css';
 import useUserContext from "../../hooks/UserContext";
 import Loading from "../loading/Loading";
+import axiosClient from "../../config/axiosClient";
 
 type Inputs = {
     username: string;
@@ -31,11 +32,10 @@ function Login() {
 
         const options: AxiosRequestConfig = {
             headers: { 'content-type': 'application/json' },
-            withCredentials: true,
         };
 
         setIsLoading(true); // Inicia la carga
-        axios.post('https://my-finance-web.onrender.com/login', user, options)
+        axiosClient.post('/login', user, options)
             .then((res) => {
                 if (res.data.loginOk) {
                     login(res.data.username);
