@@ -28,7 +28,7 @@
     "morgan": "^1.10.0",
     "typescript": "^5.7.2"
   },
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
     "build": "npm install && tsc",
     "start": "./build/src/server.js"
