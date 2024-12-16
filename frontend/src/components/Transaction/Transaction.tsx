@@ -10,9 +10,6 @@ type TransactionProps = {
 
 
 function Transaction(props: TransactionProps){
-    const [transactions, setTransactions] = useState([]);
-
-
     return (
         <>
             <div className={styles['transaction-card']}>

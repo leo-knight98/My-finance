@@ -25,11 +25,13 @@ function UserProvider({children}: UserProviderProps) {
     const navigate = useNavigate()
     function login(username: string) {
         setUser({username: username, isLogged: true})
+        localStorage.setItem('user', JSON.stringify({username: username, isLogged: true}))
         navigate('/dashboard')
     }
 
     function logout() {
         setUser({username: '', isLogged: false})
+        localStorage.removeItem('user')
         navigate('/')
     }
     return (

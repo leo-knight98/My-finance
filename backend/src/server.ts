@@ -5,17 +5,19 @@ import dotenv from 'dotenv'
 
 import HttpError from './models/HttpError'
 import { loginController, registerController } from './controllers/users.controllers'
-import { addCategoryController, getAllCategoriesController, deleteCategoryController } from './controllers/categories.controllers'
+import { addCategoryController, getAllCategoriesController, deleteCategoryController } from './controllers/categories.controllers.ts'
 import ValidationError from './models/ValidationError'
 import LoginError from './models/LoginError'
 import userAuth from './middlewares/userAuth'
-import {ExtendedRequest} from "./config/types";
-import { addTransactionController } from './controllers/transactions.controllers'
+import {ExtendedRequest} from "./config/types.ts";
+import { addTransactionController, getAllTransactionsController, deleteTransactionController } from './controllers/transactions.controllers.ts'
+import { addDebtController, getAllDebtsController } from './controllers/debts.controllers.ts'
+import { addGoalController, getAllGoalsController, deleteGoalController, editGoalController } from './controllers/goals.controller.ts'
 
 
 const app = express()
 dotenv.config()
-const PORT = process.env.PORT ?? 4000
+const PORT = process.env.PORT ?? 4321
 app.use(cors({
     origin: 'http://localhost:5173',
     credentials: true,
@@ -34,8 +36,6 @@ app.get("/", (req, res) => {
     res.send()
 })
 
-
-
 app.get("/dashboard", userAuth, (req: ExtendedRequest, res) => {
     res.send(req.user)
 })
@@ -50,8 +50,17 @@ app.post("/register", (req, res) => {
     registerController(user, res)
 })
 
+app.get("/transactions", userAuth, (req: ExtendedRequest, res) => {
+    getAllTransactionsController(req.user!.userId, res)
+})
+
 app.post("/transactions", userAuth, (req: ExtendedRequest, res) => {
     addTransactionController(req.body, req.user!.userId, res)
+})
+
+app.get("/transactions/delete", userAuth, (req: ExtendedRequest, res) => {
+    const id = Number(req.query.id)
+    deleteTransactionController(id, res)
 })
 
 app.get("/categories", userAuth, (req: ExtendedRequest, res) => {
@@ -70,6 +79,30 @@ app.post("/categories", userAuth, (req: ExtendedRequest, res) => {
 app.get("/categories/delete", userAuth, (req: ExtendedRequest, res) => {
     const id = Number(req.query.id)
     deleteCategoryController(req.user!.userId, id, res)
+})
+
+app.get("/debts", userAuth, (req: ExtendedRequest, res) => {
+    getAllDebtsController(req.user!.userId, res)
+})
+
+app.post("/debts", userAuth, (req: ExtendedRequest, res) => {
+    addDebtController(req.body, req.user!.userId, res)
+})
+
+app.get("/goals", userAuth, (req: ExtendedRequest, res) => {
+    getAllGoalsController(req.user!.userId, res)
+})
+
+app.post("/goals", userAuth, (req: ExtendedRequest, res) => {
+    addGoalController(req.body, req.user!.userId, res)
+})
+
+app.get("/goals/delete", userAuth, (req: ExtendedRequest, res) => {
+    deleteGoalController(Number(req.query.id), res)
+})
+
+app.post("/goals/edit", userAuth, (req: ExtendedRequest, res) => {
+    editGoalController(req.body, req.user!.userId, res)
 })
 
 app.use((req, res) => {

@@ -1,9 +1,9 @@
 import { z } from 'zod'
 
 enum type {
-    income = 'income',
-    expense = 'expense',
-    debt = 'debt'
+    income = "income",
+    expense = "expense",
+    debt = "debt"
 }
 
 const AddCategorySchema = z.object({

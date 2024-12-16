@@ -1,0 +1,201 @@
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.introText {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.introText h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4b4b4b;
+    margin-bottom: 1rem;
+}
+
+.introText p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 700px;
+}
+
+.card {
+    width: 80%;
+    min-width: 300px;
+    max-width: 100%; /* Ajuste para asegurar que no se expanda demasiado */
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(128, 0, 128, 0.15);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(128, 0, 128, 0.2);
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #4b4b4b;
+}
+
+.debtsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.debtsTable th, .debtsTable td {
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.debtsTable th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+.debtsTable td button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #8e44ad;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.debtsTable td button:hover {
+    color: #9b59b6;
+}
+
+.inputGroup {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputGroup label {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.inputGroup input, .inputGroup select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
+
+.inputGroup input:focus, .inputGroup select:focus {
+    border-color: #8e44ad;
+    outline: none;
+}
+
+.formError {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: #8e44ad;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #9b59b6;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        width: 90%; /* Asegura que el tamaño de la tarjeta se ajuste en pantallas medianas */
+        padding: 1.5rem;
+    }
+
+    .debtsTable th, .debtsTable td {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .inputGroup input, .inputGroup select {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .card {
+        width: 90%; /* Ocupa el 100% del contenedor en pantallas más pequeñas */
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+
+    .debtsTable th, .debtsTable td {
+        font-size: 0.8rem;
+        padding: 6px 8px;
+    }
+
+    .inputGroup input, .inputGroup select {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .button {
+        padding: 10px;
+    }
+
+    .introText h1 {
+        font-size: 1.8rem;
+    }
+
+    .introText p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+}

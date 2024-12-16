@@ -1,7 +1,8 @@
 import db from "../db";
 import { and, eq } from "drizzle-orm";
-import {LoginData, RegisterData} from '../config/types'
+import {LoginData, RegisterData} from '../config/types.ts'
 import { users } from "../db/schema";
+import { pgTable } from "drizzle-orm/pg-core";
 
 async function login(userData: LoginData) {
     const [user] = await db.select({

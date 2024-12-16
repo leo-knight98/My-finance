@@ -5,7 +5,7 @@ import { categories } from "../db/schema";
 
 async function addCategory(category: CategoryData) {
     const insert = await db.insert(categories).values({
-        user_id: category.user_id as any,
+        user_id: category.user_id,
         name: category.name,
         type: category.type as any
     }).returning()

@@ -1,0 +1,142 @@
+.goalsAction {
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+.goalsAction:hover {
+  background-color: #004d99;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dialogTitle {
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.dialogContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #fff;
+  width: 400px;
+  border-radius: 16px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.inputField {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.dueDateLabel {
+  margin-top: 5px;
+  margin-bottom: 0;
+  display: inline-block;
+  color: #666;
+}
+
+.cancelButton, .addGoalButton {
+  padding: 12px 20px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.cancelButton {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.cancelButton:hover {
+  background-color: #b71c1c;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.addGoalButton {
+  background-color: #007bff;
+  color: white;
+}
+
+.addGoalButton:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.DialogActions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 0 20px;
+}
+
+.DialogActions button {
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .dialogContent {
+    padding: 15px;
+    width: 400px;
+
+  }
+
+  .dialogTitle {
+    font-size: 1.4rem;
+  }
+
+  .cancelButton, .addGoalButton {
+    font-size: 0.85rem;
+    padding: 10px 16px;
+  }
+
+  .goalsAction {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .dialogContent {
+    width: 400px;
+    padding: 10px;
+  }
+
+  .dialogTitle {
+    font-size: 1.2rem;
+  }
+
+  .cancelButton, .addGoalButton {
+    font-size: 0.8rem;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+  }
+}

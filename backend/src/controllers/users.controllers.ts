@@ -6,7 +6,7 @@ import dotenv from 'dotenv'
 import { LoginSchema, AddUserSchema } from "../schemas/userSchemas"
 import ValidationError from '../models/ValidationError';
 import { login, registerUser } from '../models/UserModel';
-import {LoginData, RegisterData} from '../config/types';
+import {LoginData, RegisterData} from '../config/types.ts';
 import LoginError from '../models/LoginError';
 
 dotenv.config()
@@ -36,7 +36,7 @@ async function loginController(LoginData: LoginData, res: Response) {
                 })
                 res.cookie("access_token", token, {
                     httpOnly: true,
-                    maxAge: 60 * 60 * 24,
+                    maxAge: 60 * 60 * 24 * 1000,
                     sameSite: "none",
                     secure: true
                 })

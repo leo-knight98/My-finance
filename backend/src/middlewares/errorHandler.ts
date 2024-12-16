@@ -1,7 +1,7 @@
 import HttpError from "../models/HttpError"
-import { NextFunction, Request, Response } from "express"
+import { Request, Response } from "express"
 
-function errorHandler(error: Error | HttpError, req: Request, res: Response, next: NextFunction) {
+function errorHandler(error: Error | HttpError, req: Request, res: Response, next) {
     if(error instanceof HttpError) {
         res.status(error.statusCode).send({
             message: error.message

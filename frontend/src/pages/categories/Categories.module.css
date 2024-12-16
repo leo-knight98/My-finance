@@ -1,62 +1,195 @@
 .container {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    box-sizing: border-box;
+    flex-direction: column; /* Aseguramos que los elementos estén uno debajo del otro siempre */
+    align-items: center; /* Centrado de los elementos */
+}
+
+.introText {
+    width: 100%;
+    max-width: 800px; /* Limita el tamaño máximo del texto */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 2rem; /* Espacio entre el texto introductorio y las tarjetas */
+}
+
+.introText h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4b4b4b;
+    margin-bottom: 1rem;
+}
+
+.introText p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 700px; /* Controla el tamaño máximo del párrafo */
 }
 
 .card {
-    width: 60%;
-    border: 1px solid rgb(213, 213, 213);
+    width: 80%;
+    min-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
     padding: 2rem;
-    border-radius: 2rem;
-    margin: 2rem;
-    transition: transform 0.5s ease;
-    &:hover {
-        transform: scale(1.1);
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 8px;
-    } 
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(128, 0, 128, 0.15);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 2rem; /* Agrega espacio entre las tarjetas */
 }
 
-.addCategory {
-    width: 40%;
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px rgba(128, 0, 128, 0.2);
 }
 
-.inputGroup {
-    margin-top: 15px;
-    display: block;
-    width: 95%;
-}
-
-.inputGroup input, .inputGroup select {
-    width: 100%;
-    margin-top: 5px;
-}
-
-.button {
-    border: none;
-    border-radius: 10px;
-    padding: 10px 5px;
-    margin-top: 10px;
-    background-color: #0b5edc;
-    color: #c2d3ed;
-    cursor: pointer;
-}
-
-.button:hover {
-    color: #0b5edc;
-    background-color: #c2d3ed;
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #4b4b4b;
 }
 
 .categoriesTable {
     width: 100%;
-    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.categoriesTable th, .categoriesTable td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1rem;
 }
 
 .categoriesTable th {
-    text-align: left;
-    background-color: #c2d3ed;
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
 }
 
-.categoriesTable td, th {
-    border: 1px solid black;
-    padding: 5px;
+.categoriesTable td button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #8e44ad;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.categoriesTable td button:hover {
+    color: #9b59b6;
+}
+
+.inputGroup {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputGroup label {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.inputGroup input, .inputGroup select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
+
+.inputGroup input:focus, .inputGroup select:focus {
+    border-color: #8e44ad;
+    outline: none;
+}
+
+.formError {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: #8e44ad;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #9b59b6;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        padding: 2rem;
+    }
+
+    .categoriesTable th, .categoriesTable td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .inputGroup input, .inputGroup select {
+        font-size: 0.9rem;
+    }
+
+    .button {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .card {
+        width: 80%;
+        margin: 1rem 0;
+    }
+
+    .inputGroup input, .inputGroup select {
+        padding: 12px;
+    }
+
+    .button {
+        padding: 14px;
+    }
+
+    .introText h1 {
+        font-size: 1.8rem;
+    }
+
+    .introText p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
 }

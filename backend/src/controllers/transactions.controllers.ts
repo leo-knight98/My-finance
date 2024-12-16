@@ -1,11 +1,11 @@
 import { Response } from "express"
 
 import { AddTransactionSchema } from "../schemas/transactionSchemas";
-import { TransactionData } from "../config/types";
+import { TransactionData, InsertedTransactionData, TransactionToInsert } from "../config/types";
 import ValidationError from "../models/ValidationError";
-import { addTransaction } from "../models/transactions.model";
+import { addTransaction, getAllTransactions, deleteTransaction } from "../models/transactions.model";
 
-async function addTransactionController(transaction: TransactionData, user: number, res: Response) {
+async function addTransactionController(transaction: TransactionToInsert, user: number, res: Response) {
     const { success, data, error } = AddTransactionSchema.safeParse(transaction)
     if(!success) {
         throw new ValidationError(error)
@@ -14,4 +14,17 @@ async function addTransactionController(transaction: TransactionData, user: numb
     res.send(insertedTransaction)
 }
 
-export { addTransactionController }
+async function getAllTransactionsController(user_id: number, res: Response) {
+    const transactions = await getAllTransactions(user_id)
+    res.send(transactions)
+}
+
+async function deleteTransactionController(id: number, res: Response) {
+    const deleted = await deleteTransaction(id)
+    if(!deleted) {
+        res.send({deletedOk: false})
+    }
+    res.send({deletedOk: true})
+}
+
+export { addTransactionController, getAllTransactionsController, deleteTransactionController }

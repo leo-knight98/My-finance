@@ -1,46 +1,92 @@
-import {  useState } from "react";
 import { NavLink } from "react-router-dom";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { MdDashboard } from "react-icons/md";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
-import { CiFilter, CiLogin, CiLogout } from "react-icons/ci";
+import { CiFilter, CiLogout, CiLogin } from "react-icons/ci";
+import { FaHome, FaUserPlus } from "react-icons/fa";
 
-import styles from "./Sidebar.module.css"
+import styles from "./Sidebar.module.css";
 import useUserContext from "../../hooks/UserContext";
-
+import { GiPayMoney, GiPiggyBank } from "react-icons/gi";
 
 function Sidebar() {
-    const { isLogged, logout } = useUserContext()
-    const [isToggled, setIsToggled] = useState(true)
-      function manageToggle() {
-        if(!isToggled) {
-            setIsToggled(true)
-        } else {
-            setIsToggled(false)
-        }
-    }
+    const { isLogged, logout } = useUserContext();
+
     return (
-        <div className={(isToggled) ? styles.sideBar : styles.sideBarNotToggled}>
-            <div className={styles.headerSide}>
-                <h1 className={styles.title}>JLA {(isToggled) ? 'Finance' : ''} </h1>
-                <button className={styles.toggleSidebar} onClick={manageToggle}>{(isToggled) ? <IoIosArrowBack /> : <IoIosArrowForward />}</button>
+        <div className={styles.sidebar}>
+            {/* Contenedor del logo */}
+            <div className={styles.logoContainer}>
+                <img src="/logo.jpg" alt="Logo" className={styles.logo} />
             </div>
-            <ul className={styles.navList}>               
-                {(isLogged) ? (
-                    <>
-                        <li className={(isToggled) ? styles.listItem : styles.smallListItem}><NavLink to="/dashboard" className={styles.link}><i className={styles.listIcon}><MdDashboard /></i>{(isToggled ? 'Dashboard' : '')}</NavLink></li>
-                        <li className={(isToggled) ? styles.listItem : styles.smallListItem}><NavLink to='/transaction' className={styles.link}><i className={styles.listIcon}><FaMoneyBillTransfer /></i>{(isToggled ? 'Transactions' : '')}</NavLink></li>
-                        <li className={(isToggled) ? styles.listItem : styles.smallListItem}><NavLink to='/categories' className={styles.link}><i className={styles.listIcon}><CiFilter /></i>{(isToggled ? 'Categories' : '')}</NavLink></li>
-                        <li className={(isToggled) ? styles.listItem : styles.smallListItem}><a href="#" onClick={logout} className={styles.link}><i className={styles.listIcon}><CiLogout /></i>{(isToggled ? 'Logout' : '')}</a></li>
-                    </>
-                ) : (
-                    <>
-                        <li className={(isToggled) ? styles.listItem : styles.smallListItem}><NavLink to='/' className={styles.link}><i className={styles.listIcon}><CiLogin /></i>{(isToggled ? 'Login' : '')}</NavLink></li>
-                        <li className={(isToggled) ? styles.listItem : styles.smallListItem}><NavLink to='/register' className={styles.link}><i className={styles.listIcon}><CiLogin /></i>{(isToggled ? 'Register' : '')}</NavLink></li>
-                    </>
-                )} 
-                
-            </ul>
+
+            {/* Menú de navegación */}
+            <nav className={styles.navContainer}>
+                <ul className={styles.navList}>
+                    <li className={styles.navItem}>
+                        <NavLink to="/" className={styles.link}>
+                            <FaHome className={styles.icon} />
+                            <span className={styles.linkText}>Home</span>
+                        </NavLink>
+                    </li>
+                    {isLogged ? (
+                        <>
+                            <li className={styles.navItem}>
+                                <NavLink to="/dashboard" className={styles.link}>
+                                    <MdDashboard className={styles.icon} />
+                                    <span className={styles.linkText}>Dashboard</span>
+                                </NavLink>
+                            </li>
+
+                            <li className={styles.navItem}>
+                                <NavLink to="/transaction" className={styles.link}>
+                                    <FaMoneyBillTransfer className={styles.icon} />
+                                    <span className={styles.linkText}>Transactions</span>
+                                </NavLink>
+                            </li>
+
+                            <li className={styles.navItem}>
+                                <NavLink to="/categories" className={styles.link}>
+                                    <CiFilter className={styles.icon} />
+                                    <span className={styles.linkText}>Categories</span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/debts' className={styles.link}>
+                                    <GiPayMoney className={styles.icon} />
+                                    <span className={styles.linkText}>Debts</span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to='/goals' className={styles.link}>
+                                    <GiPiggyBank className={styles.icon} />
+                                    <span className={styles.linkText}>Goals</span>
+                                </NavLink>
+                            </li>
+                            <li className={styles.navItem}>
+                                <button className={styles.link} onClick={logout}>
+                                    <CiLogout className={styles.icon} />
+                                    <span className={styles.linkText}>Logout</span>
+                                </button>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li className={styles.navItem}>
+                                <NavLink to="/login" className={styles.link}>
+                                    <CiLogin className={styles.icon} />
+                                    <span className={styles.linkText}>Login</span>
+                                </NavLink>
+                            </li>
+
+                            <li className={styles.navItem}>
+                                <NavLink to="/register" className={styles.link}>
+                                    <FaUserPlus className={styles.icon} />
+                                    <span className={styles.linkText}>Register</span>
+                                </NavLink>
+                            </li>
+                        </>
+                    )}
+                </ul>
+            </nav>
         </div>
     );
 }

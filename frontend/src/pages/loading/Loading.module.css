@@ -1,0 +1,39 @@
+/* Contenedor general para centrar el spinner y el texto */
+.loadingContainer {
+    display: flex;
+    flex-direction: column; /* Apilar elementos verticalmente */
+    justify-content: center; /* Centrado vertical */
+    align-items: center; /* Centrado horizontal */
+    height: 100vh; /* Ocupa toda la pantalla */
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec); /* Fondo degradado sutil */
+  }
+  
+  /* Estilo para el spinner */
+  .spinner {
+    border: 8px solid #d1d5db; /* Color claro para el fondo del spinner */
+    border-top: 8px solid #685fe2; /* Color para la parte superior del spinner */
+    border-radius: 50%; /* Forma circular */
+    width: 60px;
+    height: 60px;
+    animation: spin 1.2s linear infinite; /* Animación de rotación */
+    margin-bottom: 15px; /* Espacio entre el spinner y el texto */
+  }
+  
+  /* Mensaje opcional para darle un toque visual */
+  .loadingText {
+    font-size: 1.25rem; /* Tamaño ajustado para mayor claridad */
+    color: #555;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Definición de la animación */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

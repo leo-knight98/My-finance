@@ -1,9 +1,10 @@
 import styles from "./Header.module.css";
+
 function Header() {
     return (
-        <footer className={styles.header}>
-            <h1>My Personal Finance</h1>
-        </footer>
+        <header className={styles.header}>
+            <h1 className={styles.title}>JLA Finance</h1>
+        </header>
     );
 }
 

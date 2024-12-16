@@ -1,78 +1,128 @@
-.sideBar {
-    background-color: #c2d3ed;
-    min-height: 100vh;
-    width: 20%;
-    padding: 30px 0 0 10px;
+/* Barra lateral principal */
+.sidebar {
+  background: linear-gradient(135deg, rgba(157, 102, 239, 0.9), rgba(162, 119, 212, 0.9)); /* Degradado vibrante */
+  color: white;
+  min-height: 100vh;
+  width: 250px; /* Ancho fijo para escritorio */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px; /* Espaciado más generoso */
+  transition: all 0.3s ease; /* Transición suave para cambios */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra más difusa y profunda */
 }
 
-.sideBarNotToggled {
-    background-color: #c2d3ed;
-    min-height: 100vh;
-    padding: 30px 0 0 0;
+/* Contenedor del logo */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  margin-bottom: 20px; /* Separación del logo del contenido */
 }
 
-.title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-right: 10px;
-    line-height: 30px;
+.logo {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: all 0.3s ease; /* Transición suave para cambios en el tamaño */
+  border: 3px solid rgba(255, 255, 255, 0.3); /* Borde sutil alrededor del logo */
 }
 
-.headerSide {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 10px;
+/* Contenedor de navegación */
+.navContainer {
+  flex-grow: 1;
 }
 
 .navList {
-    overflow: hidden;
-    margin-left: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.listItem {
-    list-style-type: none;
-    margin: 15px 0;
-    padding: 5px 0px 5px 5px;
-    width: 100%;
+.navItem {
+  margin: 12px 0; /* Espaciado más amplio entre elementos */
+  transition: transform 0.2s ease-in-out;
 }
 
-.listIcon {
-    margin-right: 10px;
-}
-
-.smallListItem {
-    width: max-content;
-    margin: 15px auto;
-    padding: 5px;
+/* Efecto de hover en las secciones */
+.navItem:hover {
+  background-color: rgba(162, 119, 212, 0.8); /* Fondo más suave y menos saturado */
+  transform: scale(1.05); /* Efecto de escalado más notorio para interactividad */
+  border-radius: 8px; /* Bordes redondeados en hover */
 }
 
 .link {
-    width: max-content;
-    display: inline-block;
-    text-decoration: none;
-    color: #0b5edc;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  padding: 12px 15px; /* Mejor acolchado para los enlaces */
+  border-radius: 8px; /* Bordes redondeados en los enlaces */
+  transition: background-color 0.2s ease, transform 0.2s ease, padding 0.2s ease;
 }
 
+/* Estilo hover en los links */
 .link:hover {
-    text-decoration: underline;
+  background-color: #7a5aec; /* Mantiene el efecto hover con un color ligeramente más cálido */
+  transform: scale(1.05);
+  padding-left: 20px; /* Expansión ligera al pasar el ratón */
 }
 
-.toggleSidebar {
-    background-color: #0b5edc;
-    border: none;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    border-radius: 50%;
-    color: #c2d3ed;
-    font-size: 1rem;
-    margin-right: 5px;
+.icon {
+  margin-right: 15px; /* Aumenté el espacio entre el icono y el texto */
+  font-size: 1.5rem; /* Iconos ligeramente más grandes */
+  transition: transform 0.3s ease, font-size 0.3s ease;
 }
 
-.toggleSidebar:hover {
-    background-color: #060a10;
-    color: #c2d3ed;
-    border: 1px solid #c2d3ed;
+.linkText {
+  font-size: 1.2rem; /* Un poco más grande para mayor legibilidad */
+  font-weight: 500; /* Texto con un peso medio para que sea más destacado */
+  transition: all 0.3s ease;
 }
 
+/* Estilo especial para el botón de Logout */
+.navItem button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  padding: 12px;
+  width: 100%;
+  text-align: left;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.navItem button:hover {
+  background-color: #e74c3c; /* Rojo más notorio para el logout */
+  transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+  border-radius: 8px; /* Bordes redondeados en el botón de logout */
+}
+
+/* Responsividad con transiciones para el efecto visual */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px; /* Barra lateral más estrecha en pantallas pequeñas */
+    padding: 15px; /* Acolchado más pequeño */
+  }
+
+  .linkText {
+    display: none; /* Ocultar texto de navegación en dispositivos móviles */
+  }
+
+  .icon {
+    font-size: 1.8rem; /* Aumenté el tamaño de los iconos en móviles */
+  }
+
+  .navItem {
+    margin: 8px 0; /* Reducir el margen entre los ítems en móviles */
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    width: 250px;
+    padding: 20px;
+  }
+}

@@ -1,40 +1,263 @@
-.formCard {
-    width: 70%;
-    border: 1px solid rgb(213, 213, 213);
-    padding: 2rem;
-    border-radius: 2rem;
-    margin: 3rem;
-    transition: transform 0.5s ease;
-    &:hover {
-        transform: scale(1.1);
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 8px;
-    }
-    
-}
-
-.formCard form {
+.container {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+}
+
+.introText {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1rem; /* Tamaño base para textos */
+    line-height: 1.5;
+}
+
+.introText h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4b4b4b;
+    margin-bottom: 1rem;
+    widows: 2;
+    orphans: 2;
+}
+
+.introText p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 700px;
+    widows: 2;
+    orphans: 2;
+}
+
+.card {
+    width: 80%;
+    min-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(128, 0, 128, 0.15);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px rgba(128, 0, 128, 0.2);
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #4b4b4b;
+    widows: 2;
+    orphans: 2;
+}
+
+.transactionsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.transactionsTable th, .transactionsTable td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.transactionsTable th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+}
+
+.transactionsTable td button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #8e44ad;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.transactionsTable td button:hover {
+    color: #9b59b6;
+}
+
+.formCard {
+    width: 80%;
+    min-width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(128, 0, 128, 0.15);
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 2rem;
+}
+
+.formCard:hover {
+    box-shadow: 0 8px 16px rgba(128, 0, 128, 0.2);
+}
+
+.formCard h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4b4b4b;
+    text-align: center;
+    margin-bottom: 1rem;
+    widows: 2;
+    orphans: 2;
+}
+
+.formCard p {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    widows: 2;
+    orphans: 2;
 }
 
 .inputGroup {
-    margin-top: 15px;
-    display: block;
-    width: 47%;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
-.button {
-    border: none;
-    border-radius: 10px;
-    padding: 10px 5px;
-    margin-top: 10px;
-    background-color: #0b5edc;
-    color: #c2d3ed;
-    cursor: pointer;
+.inputGroup label {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #333;
 }
 
 .inputGroup input, .inputGroup select {
     width: 100%;
-    margin-top: 5px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
+
+.inputGroup input:focus, .inputGroup select:focus {
+    border-color: #8e44ad;
+    outline: none;
+}
+
+.formError {
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: #8e44ad;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #9b59b6;
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive Design */
+@media (max-width: 915px) and (min-width: 380px) {
+    .container {
+        padding: 1.5rem; /* Ajuste del padding */
+        flex-direction: column;
+    }
+
+    .card, .formCard {
+        width: 90%;
+        min-width: 350px;
+        padding: 1.5rem;
+    }
+
+    .transactionsTable th, .transactionsTable td {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .transactionsTable {
+        overflow-x: auto; /* Desplazamiento horizontal */
+        display: block;
+    }
+
+    .inputGroup input, .inputGroup select {
+        font-size: 1rem; /* Mantener tamaño consistente */
+    }
+
+    .button {
+        font-size: 1rem; /* Aseguramos el mismo tamaño */
+    }
+
+    .introText h1 {
+        font-size: 1.8rem; /* Ajuste de tamaño */
+    }
+
+    .introText p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .card {
+        width: 80%;
+        margin: 1rem 0;
+    }
+
+    .inputGroup input, .inputGroup select {
+        padding: 12px;
+    }
+
+    .button {
+        padding: 14px;
+    }
+
+    .introText h1 {
+        font-size: 1.8rem;
+    }
+
+    .introText p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .transactionsTable {
+        overflow-x: auto;
+        display: block;
+    }
 }

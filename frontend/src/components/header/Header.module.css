@@ -1,10 +1,89 @@
+/* Estilos modernizados para el Header */
 .header {
-    background-color: black;
-    color: #c2d3ed;
-    padding: 15px 0
+    background: linear-gradient(135deg, rgba(157, 102, 239, 0.9), rgba(162, 119, 212, 0.9)); /* Degradado vibrante */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column; /* Aseguramos que los elementos se apilen verticalmente */
+    align-items: flex-start; /* Alinea el contenido al principio (izquierda) */
+    justify-content: flex-start; /* Alinea el contenido en la parte superior */
+    text-align: left; /* Alineación del texto a la izquierda */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra con más profundidad */
+    font-size: 2.5rem;
+    font-weight: 700;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    height: 120px; /* Altura ajustada */
+    width: 100%; /* Ahora ocupa todo el ancho de la pantalla */
+    padding: 15px 100px; /* Espaciado aumentado para control más dinámico */
+    background-size: 300% 300%; /* Degradado más fluido */
 }
 
-.header h1 {
-    font-size: 1.5rem;
-    margin-left: 10px
+/* Efecto de movimiento en el fondo */
+.header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-25deg);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+/* Animación de fondo al pasar el ratón */
+.header:hover::before {
+    left: 100%;
+}
+
+/* Efecto hover con elevación y brillo */
+.header:hover {
+    transform: translateY(-15px); /* Eleva el header más intensamente */
+    box-shadow: 0 12px 30px rgba(106, 63, 207, 0.6); /* Brillo más pronunciado */
+    filter: brightness(1.1); /* Incrementa el brillo al pasar el ratón */
+}
+
+/* Estilo y animación del título */
+.title {
+    font-size: 3rem; /* Aumentamos el tamaño para mayor impacto */
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #ffffff;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlow 2s ease-in-out infinite; /* Animación de resplandor más suave */
+    display: inline-block;
+    text-align: left; /* Alineamos el texto a la izquierda */
+    position: relative;
+    z-index: 2; /* Para mantenerlo por encima de otros elementos */
+    margin-top: 0;
+}
+
+/* Animación de resplandor del texto */
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        text-shadow: 0 0 35px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 10px;
+        height: 100px; /* Ajuste de altura para dispositivos más pequeños */
+        font-size: 2.2rem; /* Tamaño de fuente ajustado */
+    }
+
+    .title {
+        font-size: 2.2rem; /* Tamaño más pequeño en móviles */
+        letter-spacing: 2px;
+    }
 }

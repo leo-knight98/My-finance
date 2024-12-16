@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CategoryContext } from "../contexts/CategoryProvider";
 
 function useCategoryContext() {
-    const context = useContext(CategoryContext);
+  const context = useContext(CategoryContext);
 
   if (context === null) {
     throw new Error(

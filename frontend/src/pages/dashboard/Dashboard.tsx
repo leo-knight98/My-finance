@@ -1,27 +1,69 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useCategoryContext from "../../hooks/CategoryContext";
+import useTransactionContext from "../../hooks/TransactionContext";
 import Balance from "../../components/balance/Balance";
 import Transaction from "../../components/Transaction/Transaction";
 import styles from './Dashboard.module.css'
+
+type numbers = {
+    totalBalance: number,
+    totalIncome: number,
+    totalExpense: number,
+    totalSavings: number
+}
+
 function Dashboard() {
     const categoryContext = useCategoryContext()
-    useEffect(() => {
-        fetch('http://localhost:4321/dashboard', {
-            credentials: 'include'
-        })
-        .then((res) => res.json())
-        categoryContext.getAllCategories()
+    const transactionContext = useTransactionContext()
+    const [numbers, setNumbers] = useState<numbers>({
+        totalBalance: 0,
+        totalIncome: 0,
+        totalExpense: 0,
+        totalSavings: 0
     })
 
+    useEffect(() => {
+
+        if (categoryContext.categories.length === 0) {
+            categoryContext.getAllCategories()
+        }
+        if (transactionContext.transactions.length === 0) {
+            transactionContext.getAllTransactions()
+        }
+    }, [])
+
+    useEffect(() => {
+        transactionContext.transactions.forEach((element) => {
+            if(element.type === 'expense') {                
+                setNumbers((prev) => ({
+                        ...prev,
+                        totalExpense: prev.totalExpense + element.amount,
+                        totalBalance: prev.totalBalance - element.amount
+                }))
+            } else if(element.type === 'income') {
+                setNumbers((prev) => ({
+                    ...prev,
+                    totalIncome: prev.totalIncome + element.amount,
+                    totalBalance: prev.totalBalance + element.amount
+                }))
+            } else if(element.type === "debt") {
+                setNumbers((prev) => ({
+                    ...prev,
+                    totalSavings: prev.totalBalance - element.amount
+                }))
+            }
+        })
+    }, [transactionContext.transactions])
+    
     return (
         <>
             <Balance />
             <section className={styles['transaction-card-wrapper']}>
-            <Transaction title="Total Balance" amount={15.700} extraInformation="Additional information"/>
-            <Transaction title="Income" amount={15.700} extraInformation="Additional information"/>
-            <Transaction title="Expense" amount={15.700} extraInformation="Additional information"/>
-            <Transaction title="Total savings" amount={15.700} extraInformation="Additional information"/>
-        </section>
+                <Transaction title="Total Balance" amount={numbers.totalBalance} extraInformation="Additional information"/>
+                <Transaction title="Income" amount={numbers.totalIncome} extraInformation="Additional information"/>
+                <Transaction title="Expense" amount={numbers.totalExpense} extraInformation="Additional information"/>
+                <Transaction title="Total savings" amount={numbers.totalSavings} extraInformation="Additional information"/>
+            </section>
         </>
     )
 }

@@ -1,37 +1,138 @@
 .registerForm {
-    width: 50vw;
-    position: relative;
-    margin: 20px auto;
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Espacio entre grupos */
+  width: 90%;
+  max-width: 500px; /* Máximo ancho */
+  padding: 2rem 1.5rem;
+  padding-top: 0px;
+  margin: 10vh auto 0; /* Centrado vertical en pantallas normales */
+  background-color: #f9fafb; /* Fondo claro */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease-out forwards; /* Efecto de entrada */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.registerFormTitle {
+  font-size: 1.75rem; /* Título más grande */
+  font-weight: bold;
+  padding-top: 35px;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #1f2937; /* Gris oscuro */
 }
 
 .inputGroup {
-    width: 45%;
-    line-height: 1.5rem;
-    margin: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
 }
 
 .registerInput {
-    width: 100%;
+  width: 95%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out;
 }
 
-.registerButton {
-    display: block;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 5px;
-    background-color: #0b5edc;
-    color: #c2d3ed;
-    cursor: pointer;
-}
-
-.registerButton:hover {
-    color: #0b5edc;
-    background-color: #c2d3ed;
+.registerInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 .formError {
-    color: red;
-    font-size: 12px;
+  font-size: 0.875rem;
+  color: #ef4444;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.1rem;
+}
+
+.registerButton {
+  background: linear-gradient(to right, #685fe2, #3342cf);
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.registerButton:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #2b4575, #4760eb);
+}
+
+@media (min-width: 1024px) {
+  .registerForm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .inputGroup {
+    flex-direction: column;
+  }
+
+  .registerButton {
+    width: 100%;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .registerForm {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .registerFormTitle {
+    font-size: 1.5rem;
+  }
+
+  .registerInput {
+    padding: 0.5rem;
+  }
+}
+
+/* Nuevos estilos para el mensaje de éxito y error */
+.successStatus {
+  color: #22c55e; /* Verde */
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #22c55e;
+  border-radius: 5px;
+}
+
+.errorStatus {
+  color: #ef4444; /* Rojo */
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem; /* Error encima de los mensajes */
+  padding: 0.5rem;
+  border: 1px solid #ef4444;
+  border-radius: 5px;
 }

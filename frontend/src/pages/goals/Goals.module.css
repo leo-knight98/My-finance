@@ -1,0 +1,16 @@
+h1 {
+    padding: 3rem 0 0 3rem;
+    font-size: 24px;
+}
+
+.mainContainer {
+    display: flex;
+    margin-top: px;
+    flex-wrap: wrap;
+    justify-content: space-between;}
+
+.goalContainer {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}

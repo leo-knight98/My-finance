@@ -1,11 +1,5 @@
 import { Request } from "express";
 
-enum type {
-    income = 'income',
-    expense = 'expense',
-    debt = 'debt'
-}
-
 type LoginData = {
     username: string,
     password: string
@@ -29,15 +23,61 @@ type RegisterData = {
 type CategoryData = {
     user_id: number,
     name: string,
-    type: type
+    type: string
 }
 
 type TransactionData = {
-    type: type,
+    type: string,
+    category: string,
+    date: string,
+    description: string,
+    amount: number
+}
+type TransactionToInsert = {
+    type: "income" | "expense" | "debt",
     category: number,
     date: string,
     description: string,
     amount: number
 }
+type InsertedTransactionData = {
+    date: string | null,
+    id: number,
+    user_id: number | null,
+    type: "income" | "expense" | "debt" | null,
+    category_id: number | null,
+    description: string | null,
+    amount: number
+}
+type DebtData = {
+    contact_name: string,
+    amount: number,
+    date: string,
+    due_date: string,
+    status: 'owed' | 'receivable'
+}
 
-export {UserData, LoginData, ExtendedRequest, RegisterData, CategoryData, TransactionData}
+type GoalData = {
+    current: number,
+    due_date: string,
+    title: string,
+    total: number
+}
+type GoalEditData = {
+    id: number,
+    current: number,
+    due_date: string,
+    title: string,
+    total: number
+}
+
+type Goal = {
+    id: number,
+    user_id: number,
+    current: number,
+    due_date: string,
+    title: string,
+    total: number,
+}
+
+export {UserData, LoginData, ExtendedRequest, RegisterData, CategoryData, TransactionData, InsertedTransactionData, TransactionToInsert, DebtData, GoalData, Goal, GoalEditData}
