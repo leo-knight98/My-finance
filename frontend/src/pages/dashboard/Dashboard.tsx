@@ -24,6 +24,9 @@ function Dashboard() {
     })
 
     useEffect(() => {
+        if(goalContext.totalSaved === 0) {
+            goalContext.getTotalSaved()
+        }
         if (categoryContext.categories.length === 0) {
             categoryContext.getAllCategories()
         }
@@ -33,7 +36,6 @@ function Dashboard() {
         if (goalContext.goals.length === 0) {
             goalContext.getAllGoals()
         }
-        goalContext.getTotalSaved()
     }, [])
 
     useEffect(() => {

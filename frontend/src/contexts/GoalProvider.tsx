@@ -71,6 +71,7 @@ function GoalProvider({children}: GoalProviderProps) {
             if(res.data.deletedOk) {
                 const newGoals = goals.filter(element => element.id !== id)
                 setGoals(newGoals)
+                getTotalSaved()
             }
         })
     }
@@ -85,6 +86,7 @@ function GoalProvider({children}: GoalProviderProps) {
             const goalsArray = [...goals]
             goalsArray[index] = res.data[0]
             setGoals(goalsArray)
+            getTotalSaved()
         })
     }
     function getTotalSaved() {
