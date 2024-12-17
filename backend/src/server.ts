@@ -14,7 +14,7 @@ import userAuth from './middlewares/userAuth'
 import {ExtendedRequest} from "./config/types";
 import { addTransactionController, getAllTransactionsController, deleteTransactionController } from './controllers/transactions.controllers'
 import { addDebtController, getAllDebtsController } from './controllers/debts.controllers'
-import { addGoalController, getAllGoalsController, deleteGoalController, editGoalController } from './controllers/goals.controller'
+import { addGoalController, getAllGoalsController, deleteGoalController, editGoalController, getTotalSavedController } from './controllers/goals.controller'
 
 
 const app = express()
@@ -106,6 +106,10 @@ app.get("/goals/delete", userAuth, (req: ExtendedRequest, res) => {
 
 app.post("/goals/edit", userAuth, (req: ExtendedRequest, res) => {
     editGoalController(req.body, req.user!.userId, res)
+})
+
+app.get("/goals/getTotalSaved", userAuth, (req: ExtendedRequest, res) => {
+    getTotalSavedController(req.user!.userId, res)
 })
 
 app.use((req, res) => {

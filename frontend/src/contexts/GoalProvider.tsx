@@ -18,7 +18,8 @@ type GoalContext = {
     getAllGoals: () => void,
     addGoal: (goalToAdd: GoalAdded) => void,
     deleteGoal: (id: number) => void,
-    editGoal: (goalToEdit: GoalToEdit) => void
+    editGoal: (goalToEdit: GoalToEdit) => void,
+    getTotalSaved: () => void
 }
 
 type GoalAdded = {
@@ -85,12 +86,17 @@ function GoalProvider({children}: GoalProviderProps) {
             setGoals(goalsArray)
         })
     }
+    function getTotalSaved() {
+        axiosClient.get('/goals/getTotalSaved')
+        .then((res) => {console.log(res)})
+    }
     const value = {
         goals,
         getAllGoals,
         addGoal,
         deleteGoal,
-        editGoal
+        editGoal,
+        getTotalSaved
     }
     return(
         <GoalContext.Provider value={value}>

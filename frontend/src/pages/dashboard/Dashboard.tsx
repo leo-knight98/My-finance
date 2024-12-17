@@ -34,6 +34,7 @@ function Dashboard() {
         if (goalContext.goals.length === 0) {
             goalContext.getAllGoals()
         }
+        goalContext.getTotalSaved()
     }, [])
 
     useEffect(() => {

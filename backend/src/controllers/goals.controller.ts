@@ -1,7 +1,7 @@
 import { Response } from "express";
 import { AddGoalSchema, EditGoalSchema } from "../schemas/goalSchemas";
 import { GoalData, GoalEditData } from "../config/types";
-import { AddGoal, GetAllGoals, deleteGoal, editGoal } from "../models/goals.model";
+import { AddGoal, GetAllGoals, deleteGoal, editGoal, getTotalSaved } from "../models/goals.model";
 import ValidationError from "../models/ValidationError";
 
 async function addGoalController(goal: GoalData, user_id: number, res: Response) {
@@ -36,4 +36,9 @@ async function editGoalController(goal: GoalEditData, user_id: number, res: Resp
     res.send(edited)
 }
 
-export { addGoalController, getAllGoalsController, deleteGoalController, editGoalController }
+async function getTotalSavedController(user: number, res: Response) {
+    const total = getTotalSaved(user)
+    res.send(total)
+}
+
+export { addGoalController, getAllGoalsController, deleteGoalController, editGoalController, getTotalSavedController }

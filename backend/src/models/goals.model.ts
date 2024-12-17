@@ -1,7 +1,7 @@
 import { GoalData, GoalEditData } from "../config/types";
 import db from "../db";
 import { goals } from "../db/schema";
-import { and, eq } from 'drizzle-orm'
+import { and, eq, sql, sum } from 'drizzle-orm'
 
 async function AddGoal(goal: GoalData, user: number) {
     const insert = await db.insert(goals).values({
@@ -36,4 +36,14 @@ async function editGoal(goal: GoalEditData, user: number) {
     return updated
 }
 
-export { AddGoal, GetAllGoals, deleteGoal, editGoal }
+async function getTotalSaved(user: number) {
+    const total = await db.select({
+        sum: sql<number>`cast(sum(${goals.current_amount}) as int`,
+    }).from(goals).where(
+        eq(goals.user_id, user)
+    )
+    console.log(total)
+    return total
+}
+
+export { AddGoal, GetAllGoals, deleteGoal, editGoal, getTotalSaved }
