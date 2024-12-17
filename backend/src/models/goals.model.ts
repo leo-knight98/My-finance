@@ -40,6 +40,7 @@ async function getTotalSaved(user: number) {
     const total = await db.select({
       sumCurrentAmount: sum(goals.current_amount)
     }).from(goals).where(eq(goals.user_id, user));
+    console.log(total)
     return total
 }
 
