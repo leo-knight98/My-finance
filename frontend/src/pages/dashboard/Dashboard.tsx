@@ -63,11 +63,31 @@ function Dashboard() {
     return (
         <>
             <Balance />
-            <section className={styles['transaction-card-wrapper']}>
-                <Transaction title="Total Balance" amount={numbers.totalBalance} extraInformation="Additional information"/>
-                <Transaction title="Income" amount={numbers.totalIncome} extraInformation="Additional information"/>
-                <Transaction title="Expense" amount={numbers.totalExpense} extraInformation="Additional information"/>
-                <Transaction title="Total savings" amount={numbers.totalSavings} extraInformation="Additional information"/>
+            <div className={styles.titleText}>
+                <h3>Resumen de tus datos financieros</h3>
+                <p>Aquí tienes un resumen de tu saldo total, ingresos, gastos y ahorros.</p>
+            </div>
+            <section className={styles.transactionCardWrapper}>
+                <div className={styles.card}>
+                    <h3>Saldo Total</h3>
+                    <p className={styles.amount}>{numbers.totalBalance}</p>
+                    <p className={styles.extraInfo}>Información adicional</p>
+                </div>
+                <div className={styles.card}>
+                    <h3>Ingresos</h3>
+                    <p className={styles.amount}>{numbers.totalIncome}</p>
+                    <p className={styles.extraInfo}>Información adicional</p>
+                </div>
+                <div className={styles.card}>
+                    <h3>Gastos</h3>
+                    <p className={styles.amount}>{numbers.totalExpense}</p>
+                    <p className={styles.extraInfo}>Información adicional</p>
+                </div>
+                <div className={styles.card}>
+                    <h3>Ahorros Totales</h3>
+                    <p className={styles.amount}>{numbers.totalSavings}</p>
+                    <p className={styles.extraInfo}>Información adicional</p>
+                </div>
             </section>
         </>
     )
