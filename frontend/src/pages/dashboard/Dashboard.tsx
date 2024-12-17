@@ -4,6 +4,7 @@ import useTransactionContext from "../../hooks/TransactionContext";
 import Balance from "../../components/balance/Balance";
 import styles from './Dashboard.module.css'
 import UseGoalContext from "../../hooks/GoalContext";
+import Goals from "../goals/Goals";
 
 type numbers = {
     totalBalance: number,
@@ -52,7 +53,7 @@ function Dashboard() {
                 }))
             }
         })
-        console.log(goalContext.totalSaved)
+        setNumbers((prev) => ({...prev, totalSavings: goalContext.totalSaved}))
     }, [transactionContext.transactions])
     
     return (
