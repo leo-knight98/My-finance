@@ -38,11 +38,8 @@ async function editGoal(goal: GoalEditData, user: number) {
 
 async function getTotalSaved(user: number) {
     const total = await db.select({
-        sum: sql<number>`cast(sum(${goals.current_amount}) as int`,
-    }).from(goals).where(
-        eq(goals.user_id, user)
-    )
-    console.log(total)
+      sumCurrentAmount: sum(goals.current_amount)
+    }).from(goals).where(eq(goals.user_id, user));
     return total
 }
 
