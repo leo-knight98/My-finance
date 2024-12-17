@@ -1,21 +1,33 @@
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import axios, { AxiosRequestConfig } from "axios";
-
-import styles from './Login.module.css';
+import axiosClient from "../../config/axiosClient";
 import useUserContext from "../../hooks/UserContext";
 import Loading from "../loading/Loading";
-import axiosClient from "../../config/axiosClient";
+import styles from "./Login.module.css";
 
 type Inputs = {
     username: string;
     password: string;
 };
 
+function ErrorMessage({ error }: { error?: string }) {
+    return error ? (
+        <div className={styles.formError}>{error}</div>
+    ) : null;
+}
+
+function SuccessMessage({ message }: { message?: string }) {
+    return message ? (
+        <div className={styles.successStatus}>{message}</div>
+    ) : null;
+}
+
 function Login() {
     const { login } = useUserContext();
-    const [message, setMessage] = useState<"success" | "error" | null>(null);
-    const [isLoading, setIsLoading] = useState<boolean>(false); // Estado de carga
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [errorStatus, setErrorStatus] = useState<string | undefined>(undefined);
+    const [successMessage, setSuccessMessage] = useState<string | undefined>(undefined);
+    const [serverError, setServerError] = useState(false);
 
     const {
         register,
@@ -23,29 +35,34 @@ function Login() {
         formState: { errors },
     } = useForm<Inputs>();
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {
-        const username = data.username;
-        const password = data.password;
-        const user = new FormData();
-        user.append('username', username);
-        user.append('password', password);
+    const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+        setIsLoading(true);
+        setErrorStatus(undefined);
+        setServerError(false);
+        setSuccessMessage(undefined);
 
-        const options: AxiosRequestConfig = {
-            headers: { 'content-type': 'application/json' },
-        };
+        try {
+            const options = { headers: { "Content-Type": "application/json" } };
+            const res = await axiosClient.post("/login", data, options);
 
-        setIsLoading(true); // Inicia la carga
-        axiosClient.post('/login', user, options)
-            .then((res) => {
-                if (res.data.loginOk) {
-                    login(res.data.username);
-                    setMessage("success");
-                } else {
-                    setMessage("error");
-                }
-            })
-            .catch(() => setMessage("error"))
-            .finally(() => setIsLoading(false)); // Detiene la carga
+            if (res.status === 200 && res.data.loginOk) {
+                setSuccessMessage("¡Inicio de sesión exitoso! 🎉");
+                login(res.data.username);
+            } else {
+                setErrorStatus("Usuario o contraseña incorrectos.");
+            }
+        } catch (error) {
+            setErrorStatus("Error del servidor.");
+            setServerError(true);
+            console.error("Error:", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleCloseServerError = () => {
+        setServerError(false);
+        setErrorStatus(undefined);
     };
 
     return (
@@ -55,42 +72,71 @@ function Login() {
             ) : (
                 <div className={styles.card}>
                     <h1 className={styles.loginFormTitle}>Login</h1>
+                    
+                    {/* Mostrar error general transparente */}
+                    {errorStatus && (
+                        <div className={styles.errorStatus}>
+                            {errorStatus}
+                        </div>
+                    )}
+
+                    {/* Mostrar éxito */}
+                    {successMessage && (
+                        <SuccessMessage message={successMessage} />
+                    )}
+
                     <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
                         {/* Username Input */}
                         <div className={styles.inputGroup}>
-                            <label htmlFor="username" className={styles.label}>Username:</label>
+                            <label htmlFor="username" className={styles.label}>
+                                Username:
+                            </label>
                             <input
                                 id="username"
                                 className={styles.inputLogin}
                                 type="text"
                                 placeholder="Enter your username"
-                                {...register('username', { required: "Username is required" })}
+                                {...register("username", { required: "Username is required" })}
                             />
-                            {errors.username && <p className={styles.formError}>{errors.username.message}</p>}
+                            {errors.username && (
+                                <ErrorMessage error={errors.username.message} />
+                            )}
                         </div>
-                        
+
                         {/* Password Input */}
                         <div className={styles.inputGroup}>
-                            <label htmlFor="password" className={styles.label}>Password:</label>
+                            <label htmlFor="password" className={styles.label}>
+                                Password:
+                            </label>
                             <input
                                 id="password"
                                 className={styles.inputLogin}
                                 type="password"
                                 placeholder="Enter your password"
-                                {...register('password', { required: "Password is required" })}
+                                {...register("password", { required: "Password is required" })}
                             />
-                            {errors.password && <p className={styles.formError}>{errors.password.message}</p>}
+                            {errors.password && (
+                                <ErrorMessage error={errors.password.message} />
+                            )}
                         </div>
 
-                        {/* Botón de envío */}
-                        <button className={styles.loginButton} type="submit">Login</button>
+                        {/* Submit Button */}
+                        <div className={styles.inputGroup}>
+                            <button className={styles.loginButton} type="submit">
+                                Login
+                            </button>
+                        </div>
                     </form>
 
-                    {/* Mensaje */}
-                    {message && (
-                        <div className={styles.messageContainer}>
-                            {message === "success" && <button className={styles.successButton}>¡Login Exitoso!</button>}
-                            {message === "error" && <button className={styles.errorButton}>Error en el ingreso</button>}
+                    {/* Mostrar error de servidor al fondo */}
+                    {serverError && (
+                        <div className={styles.serverErrorContainer}>
+                            <button
+                                className={styles.serverErrorButton}
+                                onClick={handleCloseServerError}
+                            >
+                                Error del servidor. Haz clic para cerrar.
+                            </button>
                         </div>
                     )}
                 </div>

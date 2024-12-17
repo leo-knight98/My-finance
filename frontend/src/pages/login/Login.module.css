@@ -1,17 +1,17 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Espacio entre grupos */
-  width: 90%;
-  max-width: 500px; /* Máximo ancho */
-  padding: 2rem 1.5rem;
-  margin: 10vh auto 0; /* Centrado vertical en pantallas normales */
-  background-color: #f9fafb; /* Fondo claro */
-  border-radius: 0.5rem; /* Bordes redondeados */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 1.5rem;
+  margin: 10vh auto;
+  background-color: #f9fafb;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeIn 0.8s ease-out forwards; /* Efecto de entrada */
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
 @keyframes fadeIn {
@@ -27,6 +27,8 @@
   text-align: center;
   margin-bottom: 1rem;
   color: #1f2937; /* Gris oscuro */
+  padding-right: 40px;
+  padding-top: 20px;
 }
 
 .inputGroup {
@@ -37,7 +39,6 @@
 }
 
 .label {
-  margin-top: 10px;
   font-size: 1rem;
   margin-bottom: 0.5rem;
   color: #4b5563;
@@ -54,24 +55,69 @@
 
 .inputLogin:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  border-color: #f03bf6;
+  box-shadow: 0 0 0 3px rgba(229, 71, 250, 0.2);
 }
 
 .formError {
   font-size: 0.875rem;
   color: #ef4444;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 0.1rem;
+  margin-top: 0.25rem;
+}
+
+/* Botón de error general transparente */
+.errorStatus {
+  width: 95%;
+  padding: 0.75rem;
+  text-align: center;
+  border: 2px solid #dc3545;
+  background-color: transparent;
+  color: #dc3545;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  margin: auto 0;
+  cursor: default;
+}
+
+/* Mensajes de éxito */
+.successStatus {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #28a745; /* Verde */
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Botón de error del servidor */
+.serverErrorButton {
+  width: 100%;
+  padding: 0.75rem;
+  text-align: center;
+  background-color: transparent;
+  color: #dc3545;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid #dc3545;
+  border-radius: 0.5rem;
+  margin: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.serverErrorButton:hover {
+  background-color: #dc3545;
+  color: white;
 }
 
 .loginButton {
-  margin-top: 20px;
+  margin-top: 1rem;
   width: 100%;
-  justify-self: center;
-  background: linear-gradient(to right, #685fe2, #3342cf);
+  background: linear-gradient(to right, #b748eb, #cd34f3);
   color: white;
   padding: 1rem;
   font-size: 1rem;
@@ -84,59 +130,5 @@
 
 .loginButton:hover {
   transform: scale(1.05);
-  background: linear-gradient(to right, #2b4575, #4760eb);
-}
-
-/* Mensajes de éxito y error con diseño unificado */
-.messageContainer {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.successButton,
-.errorButton {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.successButton {
-  background-color: #28a745; /* Verde */
-  color: white;
-}
-
-.successButton:hover {
-  background-color: #218838;
-}
-
-.errorButton {
-  background-color: #dc3545; /* Rojo */
-  color: white;
-}
-
-.errorButton:hover {
-  background-color: #c82333;
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-  .card {
-    padding: 1.5rem;
-    gap: 1.25rem;
-  }
-
-  .loginFormTitle {
-    font-size: 1.5rem;
-  }
-
-  .inputLogin {
-    width: 95%;
-    padding: 0.5rem;
-  }
+  background: linear-gradient(to right, #cd34f3, #b748eb);
 }
