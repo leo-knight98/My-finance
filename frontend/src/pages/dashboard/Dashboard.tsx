@@ -34,6 +34,7 @@ function Dashboard() {
             goalContext.getAllGoals()
         }
         goalContext.getTotalSaved()
+        console.log(goalContext.totalSaved)
         setNumbers((prev) => ({
             ...prev,
             totalSavings: goalContext.totalSaved
