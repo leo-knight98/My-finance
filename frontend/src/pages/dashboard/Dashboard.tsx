@@ -4,7 +4,6 @@ import useTransactionContext from "../../hooks/TransactionContext";
 import Balance from "../../components/balance/Balance";
 import styles from './Dashboard.module.css'
 import UseGoalContext from "../../hooks/GoalContext";
-import Goals from "../goals/Goals";
 
 type numbers = {
     totalBalance: number,
