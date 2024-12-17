@@ -45,6 +45,7 @@ function TransactionProvider({children}: TransactionProviderProps) {
             headers: {'content-type': 'application/json'},
         })
         .then((data) => {
+            console.log(data.data[0])
             const transactionsList = [...transactions, data.data[0]]
             setTransactions(transactionsList)
         })
