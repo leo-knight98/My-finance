@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import useCategoryContext from "../../hooks/CategoryContext";
 import useTransactionContext from "../../hooks/TransactionContext";
 import Balance from "../../components/balance/Balance";
-import Transaction from "../../components/Transaction/Transaction";
 import styles from './Dashboard.module.css'
 import UseGoalContext from "../../hooks/GoalContext";
 
