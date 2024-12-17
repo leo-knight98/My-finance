@@ -92,7 +92,7 @@ function GoalProvider({children}: GoalProviderProps) {
         axiosClient.get('/goals/getTotalSaved')
         .then((res) => {
             console.log(res)
-            setTotalSaved(res.data[0].sumCurrentAmount)
+            setTotalSaved(Number(res.data[0].sumCurrentAmount))
             console.log(totalSaved)
         })
     }
