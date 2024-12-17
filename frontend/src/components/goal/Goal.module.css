@@ -6,7 +6,7 @@
   margin: 20px;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 100%;
+  width: 45%;
   max-width: 420px;
   display: flex;
   flex-direction: column;
