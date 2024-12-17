@@ -35,6 +35,10 @@ function Dashboard() {
             goalContext.getAllGoals()
         }
         goalContext.getTotalSaved()
+        setNumbers((prev) => ({
+            ...prev,
+            totalSavings: goalContext.totalSaved
+        }))
     }, [])
 
     useEffect(() => {
@@ -53,10 +57,6 @@ function Dashboard() {
                 }))
             }
         })
-        setNumbers((prev) => ({
-            ...prev,
-            totalSavings: goalContext.totalSaved
-        }))
     }, [transactionContext.transactions])
     
     return (
