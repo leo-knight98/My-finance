@@ -19,6 +19,11 @@ async function getAllCategories(user_id: number) {
     return categoriesData
 }
 
+async function getCategoryName(id: number) {
+    const nameOfCategory = await db.select({categoryName: categories.name}).from(categories).where(eq(categories.id, id))
+    return nameOfCategory
+}
+
 async function deleteCategory(id: number, user_id: number) {
     const deleted_id = await db.delete(categories).where(and(
         eq(categories.id, id),
@@ -27,4 +32,4 @@ async function deleteCategory(id: number, user_id: number) {
     return deleted_id
 }
 
-export { addCategory, getAllCategories, deleteCategory }
+export { addCategory, getAllCategories, deleteCategory, getCategoryName }

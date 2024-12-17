@@ -4,6 +4,7 @@ import { AddTransactionSchema } from "../schemas/transactionSchemas";
 import { TransactionData, InsertedTransactionData, TransactionToInsert } from "../config/types";
 import ValidationError from "../models/ValidationError";
 import { addTransaction, getAllTransactions, deleteTransaction } from "../models/transactions.model";
+import { getCategoryName } from "../models/categories.model";
 
 async function addTransactionController(transaction: TransactionToInsert, user: number, res: Response) {
     const { success, data, error } = AddTransactionSchema.safeParse(transaction)
@@ -11,7 +12,9 @@ async function addTransactionController(transaction: TransactionToInsert, user: 
         throw new ValidationError(error)
     }
     const insertedTransaction = await addTransaction(data, user)
-    res.send(insertedTransaction)
+    const categoryName = await getCategoryName(insertedTransaction[0].id)
+    const transactionToReturn = {...insertedTransaction, categoryName}
+    res.send(transactionToReturn)
 }
 
 async function getAllTransactionsController(user_id: number, res: Response) {
