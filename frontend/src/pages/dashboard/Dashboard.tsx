@@ -51,13 +51,12 @@ function Dashboard() {
                     totalIncome: prev.totalIncome + element.amount,
                     totalBalance: prev.totalBalance + element.amount
                 }))
-            } else if(element.type === "debt") {
-                setNumbers((prev) => ({
-                    ...prev,
-                    totalSavings: prev.totalBalance - element.amount
-                }))
             }
         })
+        setNumbers((prev) => ({
+            ...prev,
+            totalSavings: goalContext.totalSaved
+        }))
     }, [transactionContext.transactions])
     
     return (

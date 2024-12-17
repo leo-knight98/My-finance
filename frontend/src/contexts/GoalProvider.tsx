@@ -15,6 +15,7 @@ type Goal = {
 
 type GoalContext = {
     goals: Goal[],
+    totalSaved: number,
     getAllGoals: () => void,
     addGoal: (goalToAdd: GoalAdded) => void,
     deleteGoal: (id: number) => void,
@@ -44,6 +45,7 @@ type GoalProviderProps = {
 const GoalContext = createContext<GoalContext | null>(null)
 function GoalProvider({children}: GoalProviderProps) {
     const [goals, setGoals] = useState<Goal[]>([])
+    const [totalSaved, setTotalSaved] = useState(0)
     function getAllGoals() {
         axiosClient.get('/goals', {
             withCredentials: true
@@ -88,10 +90,13 @@ function GoalProvider({children}: GoalProviderProps) {
     }
     function getTotalSaved() {
         axiosClient.get('/goals/getTotalSaved')
-        .then((res) => {console.log(res)})
+        .then((res) => {
+            setTotalSaved(res.data[0].sumCurrentAmount)
+        })
     }
     const value = {
         goals,
+        totalSaved,
         getAllGoals,
         addGoal,
         deleteGoal,
