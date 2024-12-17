@@ -37,7 +37,7 @@ async function editGoalController(goal: GoalEditData, user_id: number, res: Resp
 }
 
 async function getTotalSavedController(user: number, res: Response) {
-    const total = getTotalSaved(user)
+    const total = await getTotalSaved(user)
     res.send(total)
 }
 
