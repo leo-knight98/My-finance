@@ -74,7 +74,7 @@ function Login() {
                     <h1 className={styles.loginFormTitle}>Login</h1>
                     
                     {/* Mostrar error general transparente */}
-                    {errorStatus && (
+                    {errorStatus && !serverError && (
                         <div className={styles.errorStatus}>
                             {errorStatus}
                         </div>

@@ -111,7 +111,7 @@ function Register() {
                     <h2 className={styles.registerFormTitle}>Registro</h2>
 
                     {/* Mostrar error general transparente */}
-                    {errorStatus && (
+                    {errorStatus && !serverError && (
                         <div className={styles.errorStatus}>
                             {errorStatus}
                         </div>
