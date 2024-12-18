@@ -89,7 +89,7 @@ function Register() {
                 setErrorStatus("No fue posible registrar el usuario.");
             }
         } catch (error) {
-            setErrorStatus("Error del servidor.");
+            setErrorStatus("Error en el registro, intente nuevamente.");
             setServerError(true);
             console.error("Error:", error);
         } finally {
@@ -166,7 +166,7 @@ function Register() {
                                 className={styles.serverErrorButton}
                                 onClick={handleCloseServerError}
                             >
-                                Error del servidor. Haz clic para cerrar.
+                                Error en el registro. Haz clic para cerrar.
                             </button>
                         </div>
                     )}

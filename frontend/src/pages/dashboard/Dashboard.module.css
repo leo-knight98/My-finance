@@ -2,82 +2,82 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 1.5rem; /* Cambiado para adaptar el espaciado */
+    margin-top: 1.5rem; /* Ajuste para mayor coherencia */
     flex-wrap: wrap;
-    padding: 0 2rem;
+    padding: 0 1.5rem; /* Reducido ligeramente */
 }
 
 .card {
     width: 100%;
-    min-width: 250px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 2rem;
-    background-color: #fff;
-    box-shadow: 0 4px 12px rgba(128, 0, 128, 0.15);
-    transition: all 0.3s ease-in-out;
-    text-align: center;
+    min-width: 220px; /* Ajuste para más flexibilidad */
+    border: 1px solid #ccc; /* Color de borde más claro */
+    border-radius: 10px; /* Ajuste de redondeo */
+    padding: 1.5rem; /* Reducido ligeramente */
+    background-color: #fafafa; /* Color de fondo más suave */
+    box-shadow: 0 3px 10px rgba(128, 0, 128, 0.1); /* Sombra más sutil */
+    transition: all 0.2s ease-in-out; /* Ajuste de la animación */
+    text-align: left; /* Cambiado para alinear texto a la izquierda */
 }
 
 .card:hover {
-    transform: scale(1.01);
-    box-shadow: 0 8px 16px rgba(128, 0, 128, 0.2);
+    transform: scale(1.02); /* Aumentado ligeramente */
+    box-shadow: 0 6px 14px rgba(128, 0, 128, 0.15); /* Más sutil */
 }
 
 .card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #4b4b4b;
+    font-size: 1.25rem; /* Tamaño ajustado */
+    margin-bottom: 0.8rem; /* Reducido */
+    color: #333; /* Color más oscuro */
 }
 
 .card p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
+    font-size: 0.95rem; /* Tamaño reducido */
+    color: #555; /* Color más oscuro */
+    line-height: 1.4; /* Ajuste para legibilidad */
     margin: 0 auto;
-    width: 90%;
-    max-width: 700px;
+    width: 85%; /* Ligeramente reducido */
+    max-width: 600px; /* Ajustado para coherencia */
     widows: 2;
     orphans: 2;
 }
 
 .card .amount {
-    font-size: 1.8rem;
+    font-size: 1.6rem; /* Tamaño reducido */
     font-weight: bold;
-    color: #2e4053;
+    color: #1a3c5a; /* Color cambiado */
 }
 
 .card .extraInfo {
-    font-size: 0.9rem;
-    color: #aaa;
+    font-size: 0.85rem; /* Tamaño reducido */
+    color: #999; /* Color cambiado */
 }
 
 .titleText {
     width: 100%;
     text-align: center;
-    margin-bottom: 2rem;
-    margin-top: 50px;
-    font-size: 1rem; /* Tamaño base para textos */
-    line-height: 1.5;
+    margin-bottom: 1.5rem; /* Reducido */
+    margin-top: 40px; /* Reducido */
+    font-size: 0.9rem; /* Ajuste del tamaño base */
+    line-height: 1.4; /* Ajuste de la línea */
 }
 
 .titleText h3 {
-    font-size: 2rem;
+    font-size: 1.8rem; /* Ajustado para coherencia */
     font-weight: bold;
-    color: #4b4b4b;
-    margin-bottom: 1rem;
+    color: #333; /* Color cambiado */
+    margin-bottom: 0.8rem; /* Reducido */
     widows: 2;
     orphans: 2;
 }
 
 .titleText p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
+    font-size: 0.95rem; /* Tamaño reducido */
+    color: #555; /* Color cambiado */
+    line-height: 1.4; /* Ajustado */
     margin: 0 auto;
-    width: 90%;
-    max-width: 700px;
+    width: 85%; /* Ajustado */
+    max-width: 600px; /* Ajustado */
     widows: 2;
     orphans: 2;
 }

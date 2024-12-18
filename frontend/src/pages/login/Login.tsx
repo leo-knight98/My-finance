@@ -52,7 +52,7 @@ function Login() {
                 setErrorStatus("Usuario o contraseña incorrectos.");
             }
         } catch (error) {
-            setErrorStatus("Error del servidor.");
+            setErrorStatus("Error en el ingreso, intente nuevamente.");
             setServerError(true);
             console.error("Error:", error);
         } finally {
@@ -135,7 +135,7 @@ function Login() {
                                 className={styles.serverErrorButton}
                                 onClick={handleCloseServerError}
                             >
-                                Error del servidor. Haz clic para cerrar.
+                                Error en el ingreso. Haz clic para cerrar.
                             </button>
                         </div>
                     )}
