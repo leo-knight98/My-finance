@@ -1,25 +1,31 @@
 .goalsAction {
-  background-color: #0066cc;
+  background-color: rgba(100, 44, 163, 0.8); /* violeta suave */
   color: white;
   border: none;
   padding: 12px 20px;
   border-radius: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.2s ease;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   width: 100%;
+  text-align: center;
 }
 
 .goalsAction:hover {
-  background-color: #004d99;
+  background-color: #444141; /* violeta más oscuro al pasar el cursor */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.editIcon {
+  font-size: 1rem;
+  color: #fff;
 }
 
 .dialogTitle {
   font-weight: bold;
   text-align: center;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   font-size: 1.6rem;
   animation: fadeIn 0.6s ease-in-out;
 }
@@ -44,10 +50,9 @@
 }
 
 .dueDateLabel {
-  margin-top: 5px;
-  margin-bottom: 0;
+  margin-top: 0; /* Reducido para acercar la etiqueta "Due date" */
+  margin-bottom: 0; /* Elimina el margen inferior para pegarlas más */
   display: inline-block;
-  color: #666;
 }
 
 .cancelButton, .addGoalButton {
@@ -60,26 +65,50 @@
   transition: background-color 0.3s ease, box-shadow 0.2s ease;
   text-align: center;
   margin: 10px auto;
+  
 }
 
-.cancelButton {
-  background-color: #d32f2f;
-  color: white;
-}
-
-.cancelButton:hover {
-  background-color: #b71c1c;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
 
 .addGoalButton {
-  background-color: #007bff;
+  background-color: rgba(100, 44, 163, 0.8); /* violeta suave */
   color: white;
+  padding: 14px 24px; /* Mayor espaciado */
+  font-size: 18px; /* Tamaño de fuente un poco mayor */
+  border: none;
+  border-radius: 30px; /* Bordes parcialmente redondeados */
+  cursor: pointer;
+  width: 48%; /* Los botones ocupan el 48% del contenedor */
+  transition: background-color 0.3s ease;
+  text-align: center;
+  margin: 0 2%; /* Espaciado entre los botones */
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .addGoalButton:hover {
-  background-color: #0056b3;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #444141; /* violeta más oscuro al pasar el cursor */
+  color: #ffffff;
+}
+
+.cancelButton {
+  background-color: #7a12a6; /* violeta */
+  color: white;
+  padding: 14px 24px; /* Mayor espaciado */
+  font-size: 18px; /* Tamaño de fuente un poco mayor */
+  border: none;
+  border-radius: 30px; /* Bordes parcialmente redondeados */
+  cursor: pointer;
+  width: 48%; /* Los botones ocupan el 48% del contenedor */
+  transition: background-color 0.3s ease;
+  text-align: center;
+  margin: 0 2%; /* Espaciado entre los botones */
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.cancelButton:hover {
+  background-color: #540457; /*  violeta más oscuro al pasar el cursor */
+  color: #e1c2f0;
 }
 
 .DialogActions {
@@ -87,10 +116,12 @@
   justify-content: space-between;
   gap: 10px;
   margin-top: 10px;
+  margin-bottom: 20px;
   padding: 0 20px;
 }
 
 .DialogActions button {
+  margin-top: 20px;
   width: 100%;
 }
 
@@ -103,40 +134,22 @@
   }
 }
 
-@media (max-width: 768px) {
-  .dialogContent {
-    padding: 15px;
-    width: 400px;
-
-  }
-
-  .dialogTitle {
-    font-size: 1.4rem;
-  }
-
-  .cancelButton, .addGoalButton {
-    font-size: 0.85rem;
-    padding: 10px 16px;
-  }
-
-  .goalsAction {
-    font-size: 0.8rem;
-  }
-}
-
 @media (max-width: 600px) {
-  .dialogContent {
-    width: 400px;
-    padding: 10px;
+  .DialogActions button {
+    width: 48%; 
+    margin-bottom: 10px;
   }
-
-  .dialogTitle {
-    font-size: 1.2rem;
+  
+  .DialogTitle {
+    font-size: 24px; 
   }
-
-  .cancelButton, .addGoalButton {
-    font-size: 0.8rem;
-    padding: 10px 14px;
-    margin-bottom: 8px;
+  
+  .dialog {
+    width: 90%; 
+    padding: 20px; 
+  }
+  
+  .DialogContent {
+    padding: 15px; 
   }
 }

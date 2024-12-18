@@ -6,6 +6,7 @@
   margin-bottom: 2rem;
   font-size: 1rem; /* Tamaño base para textos */
   line-height: 1.5;
+  margin: 0 auto;
 }
 
 .introText h1 {
@@ -85,7 +86,7 @@ box-shadow: 0 0 10px rgba(236, 123, 236, 0.5); /* Sombra más suave cuando se ha
 }
 
 .submitButton {
-background-color: #007bff; /* Azul */
+background-color: rgba(100, 44, 163, 0.8); /* violeta suave */
 color: white;
 padding: 14px 24px; /* Mayor espaciado */
 font-size: 18px; /* Tamaño de fuente un poco mayor */
@@ -99,27 +100,27 @@ margin: 0 2%; /* Espaciado entre los botones */
 }
 
 .submitButton:hover {
-background-color: #0056b3; /* Azul más oscuro al pasar el cursor */
-color: #bebcf4;
+background-color: #444141; /* violeta más oscuro al pasar el cursor */
+color: #ffffff;
 }
 
 .cancelButton {
-background-color: #dc3545; /* Rojo */
-color: white;
-padding: 14px 24px; /* Mayor espaciado */
-font-size: 18px; /* Tamaño de fuente un poco mayor */
-border: none;
-border-radius: 30px; /* Bordes parcialmente redondeados */
-cursor: pointer;
-width: 48%; /* Los botones ocupan el 48% del contenedor */
-transition: background-color 0.3s ease;
-text-align: center;
-margin: 0 2%; /* Espaciado entre los botones */
+  background-color: #7a12a6; /* violeta */
+  color: white;
+  padding: 14px 24px; /* Mayor espaciado */
+  font-size: 18px; /* Tamaño de fuente un poco mayor */
+  border: none;
+  border-radius: 30px; /* Bordes parcialmente redondeados */
+  cursor: pointer;
+  width: 48%; /* Los botones ocupan el 48% del contenedor */
+  transition: background-color 0.3s ease;
+  text-align: center;
+  margin: 0 2%; /* Espaciado entre los botones */
 }
 
 .cancelButton:hover {
-background-color: #c82333; /* Rojo más oscuro al pasar el cursor */
-color: #eebcbc;
+background-color: #540457; /*  violeta más oscuro al pasar el cursor */
+color: #e1c2f0;
 }
 
 .DialogContent {
@@ -210,7 +211,7 @@ to {
 }
 
 .dueDateLabel {
-margin-top: 5px; /* Reducido para acercar la etiqueta "Due date" */
+margin-top: 0; /* Reducido para acercar la etiqueta "Due date" */
 margin-bottom: 0; /* Elimina el margen inferior para pegarlas más */
 display: inline-block; /* Asegura que la etiqueta y el campo estén alineados */
 }
@@ -248,15 +249,15 @@ margin-top: 0 !important; /* Elimina el margen superior para las etiquetas */
   padding: 15px; /* Relleno más pequeño en pantallas pequeñas */
 }
 }
-
+/* 
 @media (min-width: 600px) {
 .introText {
-    width: 100%; /* Asegura que el texto ocupe el 100% del ancho en pantallas pequeñas */
+    width: 100%; 
     margin: 0 auto;
     margin-top: 20px;
-    margin-bottom: 1rem; /* Reduce el margen para optimizar espacio */
+    margin-bottom: 1rem;
     justify-content: center;
     align-items: center;
     align-content: center;
 }
-}
+} */

@@ -22,7 +22,7 @@ function FormDialogEdit(props: FormDialogPropsEdit) {
     return (
         <>
             <button onClick={handleClickOpen} className={styles.goalsAction}>
-                <FaPencilAlt />
+                <FaPencilAlt className={styles.editIcon} />
             </button>
 
             <Dialog
