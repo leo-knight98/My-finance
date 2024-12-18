@@ -86,7 +86,7 @@
 }
 
 .goalsAction {
-  background-color: #0056b3;
+  background-color: rgba(100, 44, 163, 0.8); /* violeta suave */
   color: white;
   border: none;
   padding: 12px 20px;
@@ -98,21 +98,16 @@
   text-align: center;
 }
 
-.goalsAction:hover {
-  background-color: #004494;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
 .deleteAction {
-  background-color: #e53935;
+  background-color: #7a12a6; /* violeta oscuro */
 }
 
 .deleteAction:hover {
-  background-color: #c62828;
+  background-color: #540457; /*  violeta más oscuro al pasar el cursor */
 }
 
 .deleteIcon {
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: #fff;
 }
 

@@ -10,8 +10,8 @@ export default function Home() {
         <p className={styles.sectionText}>
           Esta aplicación es una herramienta diseñada para facilitar la gestión de tus finanzas personales. 
           Permite organizar tus <span className={styles.sectionHighlight}>ingresos</span>, 
-          <span className={styles.sectionHighlight}> gastos</span> y  
-          <span className={styles.sectionHighlight}> deudas </span> de forma sencilla y eficiente. 
+          <span className={styles.sectionHighlight}>gastos</span> y 
+          <span className={styles.sectionHighlight}>deudas</span> de forma sencilla y eficiente. 
           Mantén el control de tu dinero con un sistema intuitivo y fácil de usar.
         </p>
       </section>
@@ -44,6 +44,34 @@ export default function Home() {
         </ul>
         <p className={styles.sectionText}>
           Nos dedicamos a mejorar y expandir nuestras habilidades mientras desarrollamos proyectos útiles y accesibles para todos.
+        </p>
+      </section>
+
+      {/* Nueva sección: Tutorial */}
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>¿Cómo usar esta aplicación?</h2>
+        <p className={styles.sectionText}>
+          Sigue estos simples pasos para comenzar a usar la aplicación:
+        </p>
+        <ol className={styles.sectionText}>
+          <li>
+            <span className={styles.sectionHighlight}>Regístrate:</span> Crea una cuenta con tus datos básicos.
+          </li>
+          <li>
+            <span className={styles.sectionHighlight}>Configura tus categorías:</span> Personaliza las categorías de ingresos, gastos y deudas según tus necesidades.
+          </li>
+          <li>
+            <span className={styles.sectionHighlight}>Agrega tus transacciones:</span> Registra cada ingreso o gasto con su respectiva categoría.
+          </li>
+          <li>
+            <span className={styles.sectionHighlight}>Consulta los reportes:</span> Analiza tus finanzas con gráficos y estadísticas.
+          </li>
+          <li>
+            <span className={styles.sectionHighlight}>Ajusta tus objetivos:</span> Establece metas financieras y sigue tu progreso.
+          </li>
+        </ol>
+        <p className={styles.sectionText}>
+          ¡Así de fácil! Empieza ahora y toma el control de tus finanzas.
         </p>
       </section>
     </div>
