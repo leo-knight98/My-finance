@@ -61,7 +61,7 @@ function Dashboard() {
         <>
             <Balance />
             <div className={styles.titleText}>
-                <h3>Resumen de tus datos financieros</h3>
+                <h1>Resumen de tus datos financieros</h1>
                 <p>Aquí tienes un resumen de tu saldo total, ingresos, gastos y ahorros.</p>
             </div>
             <section className={styles.transactionCardWrapper}>
