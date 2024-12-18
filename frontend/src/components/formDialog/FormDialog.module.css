@@ -231,33 +231,6 @@ margin-top: 0 !important; /* Elimina el margen superior para las etiquetas */
 }
 
 @media (max-width: 600px) {
-.DialogActions button {
-  width: 48%; /* En pantallas pequeñas los botones ocupan el 48% */
-  margin-bottom: 10px;
+
 }
 
-.DialogTitle {
-  font-size: 24px; /* Título más pequeño en pantallas pequeñas */
-}
-
-.dialog {
-  width: 90%; /* Ajusta el tamaño del contenedor en pantallas pequeñas */
-  padding: 20px; /* Relleno más pequeño en pantallas pequeñas */
-}
-
-.DialogContent {
-  padding: 15px; /* Relleno más pequeño en pantallas pequeñas */
-}
-}
-/* 
-@media (min-width: 600px) {
-.introText {
-    width: 100%; 
-    margin: 0 auto;
-    margin-top: 20px;
-    margin-bottom: 1rem;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-} */

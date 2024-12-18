@@ -3,13 +3,14 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin: 20px;
+  margin: 0 auto;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 45%;
+  width: 25%;
   max-width: 420px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .goalCard:hover {
@@ -111,9 +112,10 @@
   color: #fff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 798px) {
   .goalCard {
-    padding: 15px;
+    width: 100%;
+    margin: 20px auto;
   }
 
   .goalCardHeading h3 {
@@ -135,30 +137,5 @@
 
   .deleteIcon {
     font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .goalCard {
-    padding: 10px;
-  }
-
-  .goalCardHeading {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .goalCardHeading h3 {
-    font-size: 1rem;
-    text-align: left;
-  }
-
-  .goalsAction {
-    font-size: 0.75rem;
-    padding: 12px 20px;
-  }
-
-  .deleteIcon {
-    font-size: 1rem;
   }
 }
