@@ -27,6 +27,7 @@
 
 .card h3 {
     font-size: 1.25rem; /* Tamaño ajustado */
+    margin: 20px auto;
     margin-bottom: 0.8rem; /* Reducido */
     color: #333; /* Color más oscuro */
 }
