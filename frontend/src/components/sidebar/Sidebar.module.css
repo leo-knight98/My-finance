@@ -1,4 +1,4 @@
-/* Barra lateral principal */
+/* Barra lateral */
 .sidebar {
   background: linear-gradient(135deg, rgba(157, 102, 239, 0.9), rgba(162, 119, 212, 0.9)); /* Degradado vibrante */
   color: white;
@@ -22,41 +22,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 13%;
-  margin: 0 auto;
-  }
+}
 
 .logo {
-  height: 60px;
-  width: 60px;
-  object-fit: cover;
-  transition: all 0.3s ease; /* Transición suave para cambios en el tamaño */
+  height: 70px;
+  width: 70px;
+  margin: 25px 5px;
 }
 
-@keyframes rotar {
-  0% {
-    transform: rotate(0deg); /* Empieza sin rotación */
-  }
-  33% {
-    transform: rotate(120deg); /* Rotación de 120 grados */
-  }
-  66% {
-    transform: rotate(240deg); /* Rotación de 240 grados */
-  }
-  100% {
-    transform: rotate(360deg); /* Rotación final de 360 grados (vuelta completa) */
-  }
-}
-
-.logo:hover {
-  transform: scale(1.5); /* Escalado al pasar el ratón */
-  background-color: #f0f0f0; /* Cambio de color de fondo */
-  animation: rotar 3s ease-in-out 3; /* Animación de rotación que dure 3 segundos y se repita 3 veces */
-  transition: transform 0.4s ease, background-color 0.4s ease; /* Transiciones suaves para el resto de los efectos */
-}
-
-/* Contenedor de navegación */
+/* Menú de navegación */
 .navContainer {
   flex-grow: 1;
   display: flex;
@@ -70,25 +44,14 @@
 }
 
 .navItem {
-  margin: 8px 0; /* Espaciado más amplio entre elementos */
+  margin: 8px 0;
   transition: all 0.3s ease;
 }
 
-.navItem:hover {
-  background-color: rgba(162, 119, 212, 0.8); /* Fondo más suave y menos saturado */
-  transform: scale(1.05); /* Efecto de escalado más notorio para interactividad */
-  border-radius: 8px; /* Bordes redondeados en hover */
-}
-
-.navItem:active {
-  transform: scale(0.98); /* Simula el efecto táctil */
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
+/* Se elimina el cambio de estilo cuando el enlace está activo */
 .navItem.active {
-  background-color: rgba(122, 90, 236, 0.9); /* Color destacado */
-  border-left: 4px solid #fff; /* Indicador visual de posición */
-  transform: scale(1.05);
+  background-color: transparent; /* El fondo no cambia al estar activo */
+  transform: none; /* No hace escala ni otros cambios */
 }
 
 .link {
@@ -96,25 +59,22 @@
   align-items: center;
   text-decoration: none;
   color: white;
-  padding: 12px 15px; /* Mejor acolchado para los enlaces */
-  border-radius: 8px; /* Bordes redondeados en los enlaces */
+  padding: 12px 15px;
+  border-radius: 8px;
   transition: all 0.3s ease;
 }
 
+/* Aseguramos que el hover sea siempre el mismo, sin cambios de fondo */
 .link:hover {
-  background-color: #7a5aec; /* Mantiene el efecto hover con un color ligeramente más cálido */
+  background-color: #7a5aec;
   transform: scale(1.05);
-  padding-left: 20px; /* Expansión ligera al pasar el ratón */
+  padding-left: 20px;
 }
 
-.link:focus {
-  outline: 2px #7a5aec;
-  outline-offset: 3px;
-}
-
+/* Los iconos no deben cambiar ni en el hover ni cuando son seleccionados */
 .icon {
-  margin-right: 15px; /* Aumenté el espacio entre el icono y el texto */
-  font-size: 1.5rem; /* Iconos ligeramente más grandes */
+  margin-right: 15px;
+  font-size: 1.5rem;
   transition: transform 0.3s ease, font-size 0.3s ease;
 }
 
@@ -123,12 +83,11 @@
 }
 
 .linkText {
-  font-size: 1.2rem; /* Un poco más grande para mayor legibilidad */
-  font-weight: 500; /* Texto con un peso medio para que sea más destacado */
+  font-size: 1.2rem;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
-/* Estilo especial para el botón de Logout */
 .navItem button {
   background: none;
   border: none;
@@ -141,39 +100,39 @@
 }
 
 .navItem button:hover {
-  background-color: #e74c3c; /* Rojo más notorio para el logout */
-  transform: scale(1.05); /* Efecto de escala al pasar el ratón */
-  border-radius: 8px; /* Bordes redondeados en el botón de logout */
+  background-color: #e74c3c;
+  transform: scale(1.05);
+  border-radius: 8px;
 }
 
-/* Responsividad con transiciones para el efecto visual */
+/* Responsividad */
 @media (max-width: 768px) {
   .sidebar {
-    width: 70px; /* Barra lateral más estrecha en pantallas pequeñas */
-    padding: 15px; /* Acolchado más pequeño */
+    width: 70px;
+    padding: 15px;
   }
 
   .linkText {
-    display: none; /* Ocultar texto de navegación en dispositivos móviles */
+    display: none;
   }
 
   .icon {
-    font-size: 1.8rem; /* Aumenté el tamaño de los iconos en móviles */
-    margin: 0; /* Sin margen lateral en modo comprimido */
+    font-size: 1.8rem;
+    margin: 0;
   }
 
   .navContainer {
-    align-items: center; /* Centrar los iconos verticalmente */
+    align-items: center;
   }
 
   .navItem {
-    margin: 8px 0; /* Reducir el margen entre los ítems en móviles */
+    margin: 8px 0;
   }
 }
 
 @media (min-width: 768px) {
   .sidebar {
-    width: clamp(200px, 20vw, 300px); /* Mantiene el ancho dinámico */
+    width: clamp(200px, 20vw, 300px);
     padding: 20px;
   }
 }
