@@ -30,21 +30,16 @@ function ProgressBar(props: ProgressBarProps) {
     return (
         <div className={styles.parentDiv}>
             <div className={styles.emptyBar}>
+                {/* Barra llena */}
                 <div
                     className={styles.filledBar}
                     style={{ width: `${props.progress}%` }}
-                >
-                    {showMainText && (
-                        <span className={styles.mainText}>
-                            {getMainMessage(props.progress)}
-                        </span>
-                    )}
-                    {showSecondaryText && (
-                        <span className={styles.secondaryText}>
-                            {getSecondaryMessage(props.progress)}
-                        </span>
-                    )}
-                </div>
+                />
+                {/* Texto centrado */}
+                <span className={styles.centeredText}>
+                    {showMainText && getMainMessage(props.progress)}
+                    {showSecondaryText && getSecondaryMessage(props.progress)}
+                </span>
             </div>
         </div>
     );
