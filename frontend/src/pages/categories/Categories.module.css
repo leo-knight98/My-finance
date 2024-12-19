@@ -1,9 +1,10 @@
 .mainCategories {
-    margin: 0 auto;
-    max-width: 1200px;
+    margin: 0;
     padding: 2rem;
     box-sizing: border-box;
     background: linear-gradient(to right, #E8D8F9, #D3A9F5, #E8D8F9, #D3A9F5, #E8D8F9);
+    min-height: 100vh; /* Asegura que cubra toda la altura de la pantalla */
+    width: 95vw; /* Asegura que cubra todo el ancho de la pantalla */
 }
 
 .container {
