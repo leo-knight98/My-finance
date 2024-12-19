@@ -37,7 +37,6 @@
   animation: fadeIn 0.6s ease-out forwards;
 }
 
-/* Animación de entrada del formulario */
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -45,7 +44,6 @@
   }
 }
 
-/* Estilo para el título del formulario */
 .registerFormTitle {
   font-size: 1.25rem;
   font-weight: bold;
@@ -55,23 +53,20 @@
   line-height: 1.5;
 }
 
-/* Grupo de cada campo de entrada */
 .inputGroup {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
 }
 
-/* Estilo de la etiqueta del campo */
 .label {
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
   color: #4b5563;
 }
 
-/* Estilos de los inputs */
 .registerInput {
-  width: 92%;
+  width: 94%;
   padding: 0.75rem;
   border: 1px solid #d1d5db;
   border-radius: 6px;
@@ -79,34 +74,47 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilo de los inputs al enfocarse */
 .registerInput:focus {
   outline: none;
   border-color: #8b5cf6; /* Violeta */
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3); /* Violeta */
 }
 
-/* Cuando el input es inválido, borde y sombra de color rojo */
 .registerInput:invalid {
   border-color: #f87171; /* Rojo */
   box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.3); /* Rojo */
 }
 
-/* Cuando el input es inválido y está enfocado */
 .registerInput:invalid:focus {
   border-color: #f87171; /* Rojo */
   box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.3); /* Rojo */
 }
 
-/* Estilos para los mensajes de error */
 .formError {
   color: #f87171; /* Rojo */
   font-size: 0.875rem;
   margin-top: 0.5rem;
-  text-align: center; /* Centra los mensajes de error */
+  text-align: center;
 }
 
-/* Estilo para los botones del formulario */
+.errorStatus {
+  margin-top: 1rem; /* Asegura que el mensaje de error esté debajo del título */
+  background-color: #f87171;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.successStatus {
+  background-color: #4ade80;
+  color: #fff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 .registerButton {
   margin-top: 1.5rem;
   width: 100%;
@@ -121,40 +129,14 @@
   transition: transform 0.3s ease, background 0.3s ease;
 }
 
-/* Efecto de hover sobre el botón */
 .registerButton:hover {
   transform: scale(1.05);
   background: linear-gradient(to right, #9333ea, #7c3aed);
 }
 
-/* Contenedor y estilo para el mensaje de error general */
-.errorStatus {
-  margin-top: 1rem; /* Asegura que el mensaje de error esté debajo del título "Register" */
-  background-color: #f87171; /* Rojo */
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  font-size: 1rem;
-  font-weight: bold;
-  z-index: 1000;
-  text-align: center;
-  width: 100%; /* Ajuste de tamaño */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Mensajes de éxito en color verde */
-.successStatus {
-  background-color: #4ade80;
-  color: #fff;
-  padding: 0.75rem;
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* Estilos para el error del servidor */
+/* Error de servidor */
 .serverErrorContainer {
-  margin-top: 1rem; /* Mueve el mensaje del servidor debajo del contenido */
+  margin-top: 1rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -170,7 +152,6 @@
   font-size: 1rem;
 }
 
-/* Efecto de hover en el botón de error del servidor */
 .serverErrorButton:hover {
   background-color: #d02e2e;
 }
