@@ -42,7 +42,6 @@
 /* Efecto hover con elevación y brillo */
 .header:hover {
     transform: translateY(-15px); /* Eleva el header más intensamente */
-    box-shadow: 0 12px 30px rgba(106, 63, 207, 0.6); /* Brillo más pronunciado */
     filter: brightness(1.1); /* Incrementa el brillo al pasar el ratón */
 }
 

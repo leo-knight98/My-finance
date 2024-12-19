@@ -1,71 +1,154 @@
-.mainHome {
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 2rem;
-  box-sizing: border-box;
-  background: linear-gradient(to right, #E8D8F9, #D3A9F5, #E8D8F9, #D3A9F5, #E8D8F9);
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap');
 
 .section {
-  background-color: #f9fafb;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  transform: translateY(20px);
   opacity: 0;
-  animation: fadeIn 0.8s ease-out forwards;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  width: 80vw;
+  height: 100vh;
+  padding: 50px;
+  color: #712584;
+  font-family: 'Montserrat', sans-serif;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
+  gap: 10px;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: justify;
+  background-color: #f0f0f0;
+  widows: 2;
+  orphans: 2;
 }
 
-.section:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-.section:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.section:nth-child(3) {
-  animation-delay: 0.6s;
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sectionTitle {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #1f2937;
-  margin-bottom: 1rem;
+  font-size: 6vw;
+  color: #39072c;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  widows: 2;
+  orphans: 2;
 }
 
 .sectionText {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  color: #4b5563;
+  font-size: 3.5vw;
+  color: #333333;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+  widows: 2;
+  orphans: 2;
 }
 
 .sectionHighlight {
   font-weight: bold;
-  color: #cd34f3;
+  color: #62047f;
+  text-shadow: 0 0 8px rgba(98, 2, 127, 0.3), 0 0 10px rgba(98, 2, 127, 0.4), 0 0 15px rgba(98, 2, 127, 0.5);
+  animation: glowAnimation 3s ease-in-out infinite;
+  widows: 2;
+  orphans: 2;
 }
 
-@keyframes fadeIn {
-  to {
-    transform: translateY(0);
+@keyframes glowAnimation {
+  0% {
+    text-shadow: 0 0 10px rgba(98, 2, 127, 0.6), 0 0 20px rgba(98, 2, 127, 0.4), 0 0 30px rgba(98, 2, 127, 0.3);
+    opacity: 1;
+  }
+  25% {
+    text-shadow: 0 0 15px rgba(98, 2, 127, 0.7), 0 0 30px rgba(98, 2, 127, 0.5), 0 0 45px rgba(98, 2, 127, 0.4);
+    opacity: 1;
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(98, 2, 127, 0.8), 0 0 50px rgba(98, 2, 127, 0.6), 0 0 70px rgba(98, 2, 127, 0.5);
+    opacity: 1;
+  }
+  75% {
+    text-shadow: 0 0 15px rgba(98, 2, 127, 0.7), 0 0 30px rgba(98, 2, 127, 0.5), 0 0 45px rgba(98, 2, 127, 0.4);
+    opacity: 0.8;
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(98, 2, 127, 0.6), 0 0 20px rgba(98, 2, 127, 0.4), 0 0 30px rgba(98, 2, 127, 0.3);
     opacity: 1;
   }
 }
 
-@media (max-width: 480px) {
-  .mainHome {
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
+.mainHome {
+  padding: 0;
+  background: linear-gradient(to right, #F4E1F2, #D1A7D8, #F4E1F2);
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+ul, ol {
+  list-style-position: inside;
+}
+
+ul li, ol li {
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+  text-align: center;
+  widows: 2;
+  orphans: 2;
+}
+
+
+@media (max-width: 768px) and (min-width: 450px) {
+  .section {
+    width: 70vw;
+    height: 110vh;
+    font-size: 1px;
   }
+
+  .sectionTitle {
+    font-size: 4vw;
+  }
+  .sectionText {
+    font-size: 1vw;
+  }
+  li {
+    font-size: 16vw;
+  }
+}
+
+@media (max-width: 450px) and (min-width: 100px) {
+  .section {
+    width: 70vw;
+    height: 100vh;
+    font-size: 4vw;
+  }
+  .sectionTitle {
+    font-size: 9vw;
+  }
+  .sectionText {
+    font-size: 18vw;
+  }
+  ol {
+    font-size: 12vw;
+  }
+
 }
