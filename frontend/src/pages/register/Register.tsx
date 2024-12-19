@@ -62,15 +62,10 @@ function Register() {
         register,
         handleSubmit,
         formState: { errors },
+        watch,
     } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-        if (data.password !== data.confirmPassword) {
-            setErrorStatus("Las contraseñas no coinciden.");
-            setSuccessMessage(undefined);
-            return;
-        }
-
         setIsLoading(true);
         setErrorStatus(undefined);
         setServerError(false);
@@ -102,6 +97,9 @@ function Register() {
         setErrorStatus(undefined);
     };
 
+    // Obtener valores de las contraseñas para comparación
+    const password = watch('password');
+    // const confirmPassword = watch('confirmPassword');
     return (
         <div className={styles.mainRegister}> 
             <div className={styles.container}>
@@ -132,21 +130,34 @@ function Register() {
                                 label="Correo"
                                 type="email"
                                 placeholder="Tu correo"
-                                register={register("email", { required: "El correo es obligatorio" })}
+                                register={register("email", { required: "El correo es obligatorio", pattern: {
+                                    value: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/,
+                                    message: "Correo electrónico inválido"
+                                }})}
                                 error={errors.email?.message}
                             />
                             <InputField
                                 label="Contraseña"
                                 type="password"
                                 placeholder="Contraseña"
-                                register={register("password", { required: "La contraseña es obligatoria" })}
+                                register={register("password", { 
+                                    required: "La contraseña es obligatoria", 
+                                    minLength: {
+                                        value: 6,
+                                        message: "La contraseña debe tener al menos 6 caracteres"
+                                    }
+                                })}
                                 error={errors.password?.message}
                             />
                             <InputField
                                 label="Confirmar Contraseña"
                                 type="password"
                                 placeholder="Confirmar contraseña"
-                                register={register("confirmPassword", { required: "La confirmación es obligatoria" })}
+                                register={register("confirmPassword", { 
+                                    required: "La confirmación es obligatoria",
+                                    validate: value =>
+                                        value === password || "Las contraseñas no coinciden"
+                                })}
                                 error={errors.confirmPassword?.message}
                             />
                             <div className={styles.inputGroup}>

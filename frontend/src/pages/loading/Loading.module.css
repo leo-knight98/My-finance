@@ -5,7 +5,7 @@
     justify-content: center; /* Centrado vertical */
     align-items: center; /* Centrado horizontal */
     height: 100vh; /* Ocupa toda la pantalla */
-    background: linear-gradient(135deg, #f0f4f8, #d9e2ec); /* Fondo degradado sutil */
+    background: transparent;
   }
   
   /* Estilo para el spinner */
