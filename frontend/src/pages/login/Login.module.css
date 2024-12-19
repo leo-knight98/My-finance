@@ -91,6 +91,7 @@
   color: #f87171; /* Rojo */
   font-size: 0.875rem;
   margin-top: 0.5rem;
+  text-align: center; /* Asegura que el error esté centrado */
 }
 
 .errorStatus {
@@ -132,8 +133,7 @@
 
 /* Error de servidor */
 .serverErrorContainer {
-  position: absolute;
-  bottom: 10px;
+  margin-top: 1rem; /* Mueve el mensaje de error debajo del texto "Login" */
   width: 100%;
   display: flex;
   justify-content: center;
