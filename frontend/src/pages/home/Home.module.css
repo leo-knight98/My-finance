@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap');
 
 .section {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  opacity: 1; /* Mantiene la visibilidad constante */
+  transform: translateY(0); /* Evita que se mueva fuera de la vista */
+  transition: none; /* Elimina cualquier transición */
   width: 80vw;
-  height: 100vh;
+  height:100vh;
   padding: 50px;
   color: #712584;
   font-family: 'Montserrat', sans-serif;
@@ -134,8 +134,6 @@ ul li, ol li {
   margin-bottom: 20px; /* Mayor separación entre la imagen y el texto */
   margin-right: 20px; /* Separación horizontal entre los íconos en diseño ancho */
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-  position: sticky; /* Mantiene la imagen fija mientras haces scroll */
-  top: 10px; /* Asegura que no se superponga al contenido */
 }
 
 .teamMembers {
@@ -206,6 +204,7 @@ ul li, ol li {
   }
 }
 
+
 @media (max-width: 390px) and (min-width: 100px) {
   .section {
     padding-bottom:10px;
@@ -219,4 +218,3 @@ ul li, ol li {
     font-size: 12vw;
   }
 }
-
