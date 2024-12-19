@@ -1,3 +1,11 @@
+.mainCategories {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #E8D8F9, #D3A9F5, #E8D8F9, #D3A9F5, #E8D8F9);
+}
+
 .container {
     width: 100%;
     display: flex;
@@ -6,18 +14,21 @@
     gap: 2rem;
     padding: 2rem;
     box-sizing: border-box;
-    flex-direction: column; /* Aseguramos que los elementos estén uno debajo del otro siempre */
-    align-items: center; /* Centrado de los elementos */
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0; /* Asegura que no haya margen adicional abajo */
 }
 
 .introText {
     width: 100%;
-    max-width: 800px; /* Limita el tamaño máximo del texto */
-    text-align: center; /* Centra el texto */
-    margin-bottom: 2rem; /* Espacio entre el texto introductorio y las tarjetas */
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1rem; /* Tamaño base para textos */
+    line-height: 1.5;
 }
 
-.introText h1 {
+.introText h3 {
     font-size: 2rem;
     font-weight: bold;
     color: #4b4b4b;
@@ -30,7 +41,7 @@
     line-height: 1.5;
     margin: 0 auto;
     width: 90%;
-    max-width: 700px; /* Controla el tamaño máximo del párrafo */
+    max-width: 700px;
 }
 
 .card {
@@ -42,7 +53,7 @@
     background-color: #fff;
     box-shadow: 0 4px 12px rgba(128, 0, 128, 0.15);
     transition: all 0.3s ease-in-out;
-    margin-bottom: 2rem; /* Agrega espacio entre las tarjetas */
+    margin-bottom: 2rem;
 }
 
 .card:hover {
@@ -55,6 +66,7 @@ h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #4b4b4b;
+
 }
 
 .categoriesTable {
@@ -66,7 +78,7 @@ h2 {
 .categoriesTable th, .categoriesTable td {
     border: 1px solid #ddd;
     padding: 12px 15px;
-    text-align: left;
+    text-align: center;
     font-size: 1rem;
 }
 
@@ -144,7 +156,7 @@ h2 {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 915px) and (min-width: 380px) {
     .card {
         width: 90%;
         padding: 2rem;
@@ -164,7 +176,7 @@ h2 {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 380px) {
     .container {
         flex-direction: column;
         align-items: center;
@@ -172,7 +184,7 @@ h2 {
     }
 
     .card {
-        width: 80%;
+        width: 90%;
         margin: 1rem 0;
     }
 
@@ -184,12 +196,53 @@ h2 {
         padding: 14px;
     }
 
-    .introText h1 {
+    .introText h3 {
         font-size: 1.8rem;
     }
 
     .introText p {
         font-size: 0.95rem;
         line-height: 1.6;
+    }
+}
+
+/* Para pantallas extremadamente pequeñas (200px en adelante) */
+@media (min-width: 200px) {
+    .container {
+        min-width: 90%;
+        padding: 0.5rem;
+    }
+
+    .card,
+    .formCard {
+        min-width: 90%;
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .inputGroup input,
+    .inputGroup select {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .introText h3 {
+        font-size: 1.6rem;
+    }
+
+    .introText p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .categoriesTable th,
+    .categoriesTable td {
+        font-size: 0.9rem;
+        padding: 8px;
     }
 }

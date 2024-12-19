@@ -46,60 +46,61 @@ function FormDialog(props: FormDialogProps) {
 
   return (
     <>
-      <div className={styles.introText}>
-        <h1>¡Establece tus metas!</h1>
-        <p>Rellena los campos para establecer tus metas financieras. Podrás seguir tu progreso y alcanzar tus objetivos de manera más eficiente.</p>
+      <div className={styles.mainForm}>
+        <div className={styles.introText}>
+          <h3>¡Establece tus metas!</h3>
+          <p>Rellena los campos para establecer tus metas financieras. Podrás seguir tu progreso y alcanzar tus objetivos de manera más eficiente.</p>
+        </div>
+        
+        <button onClick={handleClickOpen} className={styles.addGoalButton}>Añade tus metas!...</button>
+        <Dialog
+          open={isToggled}
+          onClose={handleClickClose}
+          PaperProps={{
+            component: 'form',
+            onSubmit: handleFormSubmit,
+          }}
+        >
+          <DialogTitle className={styles.DialogTitle}>Meta por alcanzar!</DialogTitle>
+          <DialogContent className={styles.DialogContent}>
+            <TextField
+              required
+              label="Título"
+              name="title"
+              fullWidth
+              variant="standard"
+            />
+            <TextField
+              required
+              type="number"
+              label="Monto a alcanzar"
+              name="total"
+              fullWidth
+              variant="standard"
+            />
+            <TextField
+              required
+              type="number"
+              label="Monto actual"
+              name="current"
+              fullWidth
+              variant="standard"
+            />
+            <InputLabel className={styles.dueDateLabel}>Vencimiento</InputLabel>
+            <TextField
+              required
+              type="date"
+              name="due_date"
+              variant="standard"
+              className={styles.dueDateInput}
+            />
+          </DialogContent>
+          <DialogActions className={styles.DialogActions}>
+            <button className={styles.cancelButton} onClick={handleClickClose}>Cancelar</button>
+            <button className={styles.submitButton} type="submit">Enviar</button>
+          </DialogActions>
+        </Dialog>
       </div>
-      
-      <button onClick={handleClickOpen} className={styles.addGoalButton}>Añade tus metas!...</button>
-
-      <Dialog
-        open={isToggled}
-        onClose={handleClickClose}
-        PaperProps={{
-          component: 'form',
-          onSubmit: handleFormSubmit,
-        }}
-      >
-        <DialogTitle className={styles.DialogTitle}>Meta por alcanzar!</DialogTitle>
-        <DialogContent className={styles.DialogContent}>
-          <TextField
-            required
-            label="Título"
-            name="title"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            required
-            type="number"
-            label="Monto a alcanzar"
-            name="total"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            required
-            type="number"
-            label="Monto actual"
-            name="current"
-            fullWidth
-            variant="standard"
-          />
-          <InputLabel className={styles.dueDateLabel}>Vencimiento</InputLabel>
-          <TextField
-            required
-            type="date"
-            name="due_date"
-            variant="standard"
-            className={styles.dueDateInput}
-          />
-        </DialogContent>
-        <DialogActions className={styles.DialogActions}>
-          <button className={styles.cancelButton} onClick={handleClickClose}>Cancelar</button>
-          <button className={styles.submitButton} type="submit">Enviar</button>
-        </DialogActions>
-      </Dialog>
     </>
   );
 }

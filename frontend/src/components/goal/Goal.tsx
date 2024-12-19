@@ -33,7 +33,7 @@ function Goal(props: GoalProps) {
                     <span className={styles.current}> {props.currentAmount}</span> / <span className={styles.total}>{props.total}</span>
                 </div>
                 
-                {/* Barra de progreso */}
+                {/* rra de progreso */}
                 <ProgressBar progress={progressNumber} />
                 
                 {/* Mostrar porcentaje debajo de la barra de progreso */}

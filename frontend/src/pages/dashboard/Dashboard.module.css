@@ -1,46 +1,54 @@
+.mainDashboard {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #E8D8F9, #D3A9F5, #E8D8F9, #D3A9F5, #E8D8F9);
+}
+
 .transactionCardWrapper {
     display: flex;
-    flex-wrap: wrap; /* Permite que las tarjetas se ajusten en filas */
-    gap: 65px; /* Espacio más pequeño entre las tarjetas */
-    margin-top: 1.5rem;
-    padding: 0 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinea las tarjetas al centro */
+    gap: 2rem; /* Espacio más pequeño entre las tarjetas */
+    margin-top: 2rem;
+    padding: 0 2rem;
 }
 
 .card {
-    width: 15%; /* Las tarjetas ocuparán el 23% del ancho para que quepan 4 en una fila */
+    max-width: 20%; /* Las tarjetas ahora ocupan el 80% del ancho en pantallas grandes */
     border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 1.5rem;
+    border-radius: 12px;
+    padding: 2rem;
     background-color: #fafafa;
-    box-shadow: 0 3px 10px rgba(128, 0, 128, 0.1);
-    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 12px rgba(128, 0, 128, 0.1);
+    transition: all 0.3s ease-in-out;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 .card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 14px rgba(128, 0, 128, 0.15);
+    transform: scale(1.01);
+    box-shadow: 0 8px 16px rgba(128, 0, 128, 0.15);
 }
 
 .card h3 {
-    font-size: 1.25rem;
+    font-size: 1.5rem; /* Tamaño de texto ajustado */
     text-align: center;
-    margin: 0 auto;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     color: #333;
 }
 
 .card p {
-    font-size: 0.95rem;
+    font-size: 1rem; /* Aumento el tamaño del texto */
     color: #555;
-    line-height: 1.4;
+    line-height: 1.6;
     margin: 0 auto;
-    width: 80%;
-    max-width: 600px;
+    max-width: 80%;
 }
 
 .card .amount {
-    font-size: 1.6rem;
+    font-size: 1.8rem; /* Aumento el tamaño de la cantidad */
     text-align: center;
     margin: 0 auto;
     font-weight: bold;
@@ -48,48 +56,48 @@
 }
 
 .card .extraInfo {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     color: #999;
     text-align: center;
-    margin: 0 auto;
 }
 
 .titleText {
+    width: 100%;
+    max-width: 800px;
     text-align: center;
-    margin-bottom: 2rem;
-    font-size: 1rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    font-size: 1rem; /* Tamaño base para textos */
     line-height: 1.5;
 }
 
-.titleText h1 {
-    width: 90%;
-    margin: 0 auto;
-    font-size: 2rem;
+.titleText h3 {
+    font-size: 1.5rem;
     font-weight: bold;
     color: #4b4b4b;
+    margin-top: 10px;
     margin-bottom: 1rem;
-    text-align: center;
 }
 
 .titleText p {
-    width: 100%;
-    margin: 0 auto;
     font-size: 1rem;
     color: #666;
     line-height: 1.5;
-    text-align: center;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 700px;
 }
 
-/* Para pantallas grandes */
-@media (max-width: 1024px) {
-    .card {
-        width: 100% /* En pantallas medianas, las tarjetas siguen ocupando el 23% */
+/* Para pantallas pequeñas */
+@media (max-width: 1345px) {
+    .mainDashboard {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
     }
-}
 
-/* Para pantallas móviles */
-@media (max-width: 768px) {
     .card {
-        width: 100%; /* En pantallas pequeñas, las tarjetas ocupan el 100% */
+        min-width: 90%; /* Las tarjetas ocupan el 90% del ancho en pantallas medianas */
+        padding: 1.5rem;
     }
 }

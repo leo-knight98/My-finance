@@ -103,76 +103,73 @@ function Register() {
     };
 
     return (
-        <>
-            {isLoading ? (
-                <Loading />
-            ) : (
-                <div className={styles.card}>
-                    <h2 className={styles.registerFormTitle}>Registro</h2>
-
-                    {/* Mostrar error general transparente */}
-                    {errorStatus && !serverError && (
-                        <div className={styles.errorStatus}>
-                            {errorStatus}
-                        </div>
-                    )}
-
-                    {/* Mostrar mensaje de éxito */}
-                    {successMessage && (
-                        <SuccessMessage message={successMessage} />
-                    )}
-
-                    <form className={styles.registerForm} onSubmit={handleSubmit(onSubmit)}>
-                        <InputField
-                            label="Nombre"
-                            type="text"
-                            placeholder="Tu nombre"
-                            register={register("name", { required: "El nombre es obligatorio" })}
-                            error={errors.name?.message}
-                        />
-                        <InputField
-                            label="Correo"
-                            type="email"
-                            placeholder="Tu correo"
-                            register={register("email", { required: "El correo es obligatorio" })}
-                            error={errors.email?.message}
-                        />
-                        <InputField
-                            label="Contraseña"
-                            type="password"
-                            placeholder="Contraseña"
-                            register={register("password", { required: "La contraseña es obligatoria" })}
-                            error={errors.password?.message}
-                        />
-                        <InputField
-                            label="Confirmar Contraseña"
-                            type="password"
-                            placeholder="Confirmar contraseña"
-                            register={register("confirmPassword", { required: "La confirmación es obligatoria" })}
-                            error={errors.confirmPassword?.message}
-                        />
-
-                        <div className={styles.inputGroup}>
-                            <button type="submit" className={styles.registerButton}>
-                                Registrar
-                            </button>
-                        </div>
-                    </form>
-
-                    {/* Mostrar error de servidor al fondo */}
-                    {serverError && (
-                        <div className={styles.serverErrorContainer}>
-                            <button
-                                className={styles.serverErrorButton}
-                                onClick={handleCloseServerError}
-                            >
-                                Error en el registro. Haz clic para cerrar.
-                            </button>
-                        </div>
-                    )}
-                </div>
-            )}
-        </>
+        <div className={styles.mainRegister}> 
+            <div className={styles.container}>
+                {isLoading ? (
+                    <Loading />
+                ) : (
+                    <div className={styles.card}>
+                        <h3 className={styles.registerFormTitle}>Registro</h3>
+                        {/* Mostrar error general transparente */}
+                        {errorStatus && !serverError && (
+                            <div className={styles.errorStatus}>
+                                {errorStatus}
+                            </div>
+                        )}
+                        {/* Mostrar mensaje de éxito */}
+                        {successMessage && (
+                            <SuccessMessage message={successMessage} />
+                        )}
+                        <form className={styles.registerForm} onSubmit={handleSubmit(onSubmit)}>
+                            <InputField
+                                label="Nombre"
+                                type="text"
+                                placeholder="Tu nombre"
+                                register={register("name", { required: "El nombre es obligatorio" })}
+                                error={errors.name?.message}
+                            />
+                            <InputField
+                                label="Correo"
+                                type="email"
+                                placeholder="Tu correo"
+                                register={register("email", { required: "El correo es obligatorio" })}
+                                error={errors.email?.message}
+                            />
+                            <InputField
+                                label="Contraseña"
+                                type="password"
+                                placeholder="Contraseña"
+                                register={register("password", { required: "La contraseña es obligatoria" })}
+                                error={errors.password?.message}
+                            />
+                            <InputField
+                                label="Confirmar Contraseña"
+                                type="password"
+                                placeholder="Confirmar contraseña"
+                                register={register("confirmPassword", { required: "La confirmación es obligatoria" })}
+                                error={errors.confirmPassword?.message}
+                            />
+                            <div className={styles.inputGroup}>
+                                <button type="submit" className={styles.registerButton}>
+                                    Registrar
+                                </button>
+                            </div>
+                        </form>
+                        {/* Mostrar error de servidor al fondo */}
+                        {serverError && (
+                            <div className={styles.serverErrorContainer}>
+                                <button
+                                    className={styles.serverErrorButton}
+                                    onClick={handleCloseServerError}
+                                >
+                                    Error en el registro. Haz clic para cerrar.
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
+        </div>
     );
 }
 

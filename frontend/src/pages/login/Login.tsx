@@ -66,82 +66,86 @@ function Login() {
     };
 
     return (
-        <>
-            {isLoading ? (
-                <Loading />
-            ) : (
-                <div className={styles.card}>
-                    <h1 className={styles.loginFormTitle}>Login</h1>
-                    
-                    {/* Mostrar error general transparente */}
-                    {errorStatus && !serverError && (
-                        <div className={styles.errorStatus}>
-                            {errorStatus}
-                        </div>
-                    )}
-
-                    {/* Mostrar éxito */}
-                    {successMessage && (
-                        <SuccessMessage message={successMessage} />
-                    )}
-
-                    <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
-                        {/* Username Input */}
-                        <div className={styles.inputGroup}>
-                            <label htmlFor="username" className={styles.label}>
-                                Username:
-                            </label>
-                            <input
-                                id="username"
-                                className={styles.inputLogin}
-                                type="text"
-                                placeholder="Enter your username"
-                                {...register("username", { required: "Username is required" })}
-                            />
-                            {errors.username && (
-                                <ErrorMessage error={errors.username.message} />
-                            )}
-                        </div>
-
-                        {/* Password Input */}
-                        <div className={styles.inputGroup}>
-                            <label htmlFor="password" className={styles.label}>
-                                Password:
-                            </label>
-                            <input
-                                id="password"
-                                className={styles.inputLogin}
-                                type="password"
-                                placeholder="Enter your password"
-                                {...register("password", { required: "Password is required" })}
-                            />
-                            {errors.password && (
-                                <ErrorMessage error={errors.password.message} />
-                            )}
-                        </div>
-
-                        {/* Submit Button */}
-                        <div className={styles.inputGroup}>
-                            <button className={styles.loginButton} type="submit">
-                                Login
-                            </button>
-                        </div>
-                    </form>
-
-                    {/* Mostrar error de servidor al fondo */}
-                    {serverError && (
-                        <div className={styles.serverErrorContainer}>
-                            <button
-                                className={styles.serverErrorButton}
-                                onClick={handleCloseServerError}
-                            >
-                                Error en el ingreso. Haz clic para cerrar.
-                            </button>
-                        </div>
-                    )}
-                </div>
-            )}
-        </>
+        <div className={styles.mainLogin}>
+<div className={styles.container}>
+    
+                {isLoading ? (
+                    <Loading />
+                ) : (
+                    <div className={styles.card}>
+                        <h3 className={styles.loginFormTitle}>Login</h3>
+    
+                        {/* Mostrar error general transparente */}
+                        {errorStatus && !serverError && (
+                            <div className={styles.errorStatus}>
+                                {errorStatus}
+                            </div>
+                        )}
+    
+                        {/* Mostrar éxito */}
+                        {successMessage && (
+                            <SuccessMessage message={successMessage} />
+                        )}
+    
+                        <form className={styles.loginForm} onSubmit={handleSubmit(onSubmit)}>
+                            {/* Username Input */}
+                            <div className={styles.inputGroup}>
+                                <label htmlFor="username" className={styles.label}>
+                                    Username:
+                                </label>
+                                <input
+                                    id="username"
+                                    className={styles.inputLogin}
+                                    type="text"
+                                    placeholder="Enter your username"
+                                    {...register("username", { required: "Username is required" })}
+                                />
+                                {errors.username && (
+                                    <ErrorMessage error={errors.username.message} />
+                                )}
+                            </div>
+    
+                            {/* Password Input */}
+                            <div className={styles.inputGroup}>
+                                <label htmlFor="password" className={styles.label}>
+                                    Password:
+                                </label>
+                                <input
+                                    id="password"
+                                    className={styles.inputLogin}
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    {...register("password", { required: "Password is required" })}
+                                />
+                                {errors.password && (
+                                    <ErrorMessage error={errors.password.message} />
+                                )}
+                            </div>
+    
+                            {/* Submit Button */}
+                            <div className={styles.inputGroup}>
+                                <button className={styles.loginButton} type="submit">
+                                    Login
+                                </button>
+                            </div>
+                        </form>
+    
+                        {/* Mostrar error de servidor al fondo */}
+                        {serverError && (
+                            <div className={styles.serverErrorContainer}>
+                                <button
+                                    className={styles.serverErrorButton}
+                                    onClick={handleCloseServerError}
+                                >
+                                    Error en el ingreso. Haz clic para cerrar.
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                )}
+</div>
+            
+        </div>
     );
 }
 

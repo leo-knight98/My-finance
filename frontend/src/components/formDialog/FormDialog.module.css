@@ -1,22 +1,29 @@
-/* Estilos comunes para el título y texto explicativo */ 
+.mainForm {
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  
+}
+
+/* Estilos comunes para el título y texto explicativo */
 .introText {
   width: 100%;
   max-width: 800px;
   text-align: center;
   margin-bottom: 2rem;
-  font-size: 1rem; /* Tamaño base para textos */
+  font-size: 1rem;
   line-height: 1.5;
   margin: 0 auto;
 }
 
-.introText h1 {
-  font-size: 2rem;
+.introText h3 {
+  font-size: 1.5rem;
   font-weight: bold;
   color: #4b4b4b;
   margin-bottom: 1rem;
   widows: 2;
   orphans: 2;
-  hyphens: auto; /* Agregado para control de palabras largas */
+  hyphens: auto;
 }
 
 .introText p {
@@ -28,209 +35,207 @@
   max-width: 700px;
   widows: 2;
   orphans: 2;
-  hyphens: auto; /* Agregado para control de palabras largas */
+  hyphens: auto;
 }
 
+/* Estilos comunes para las cards */
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card {
+  min-width: 200%;
+  max-width: 920;
+  flex: 1 1 45%;
+  box-sizing: border-box;
+  margin: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  
+}
+
+/* Estilo para el comportamiento de las cards */
+@media (min-width: 200px) and (max-width: 900px) {
+  .card {
+    width: 100%; /* Las cards ocupan todo el ancho, colocándose una debajo de otra */
+    flex: 1 1 100%; /* Las cards ocupan el 100% del contenedor */
+    max-width: none; /* Se elimina el max-width para que ocupen todo el espacio disponible */
+  }
+}
+
+@media (min-width: 700px) {
+  .card {
+    width: 45%; /* Dos cards por fila */
+    flex: 1 1 45%; /* Flexibilidad para adaptarse al espacio */
+  }
+}
+
+/* Estilos de los botones y otros elementos */
 .addGoalButton {
-background-color: transparent; /* Fondo transparente */
-color: rgb(106, 63, 207); /* Color de texto violeta */
-padding: 15px 30px; /* Espaciado interno */
-font-size: 20px; /* Fuente más grande */
-border: 2px solid rgb(106, 63, 207); /* Borde violeta */
-border-radius: 10px; /* Bordes redondeados para un toque más suave */
-cursor: pointer;
-width: 90%; /* El botón ocupará el 90% del ancho disponible */
-text-align: left; /* Alinea el texto a la izquierda */
-margin: 10px auto; /* Márgenes alrededor para separarlo de los bordes */
-display: flex; /* Usar flexbox para alinear el texto */
-align-items: center; /* Centra el texto verticalmente */
-justify-content: flex-start; /* Alinea el texto a la izquierda */
-transition: all 0.4s ease-in-out; /* Transición suave para todos los cambios */
-position: relative; /* Para animar el borde */
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave para profundidad */
-margin-top: 50px; /* Reduce la distancia adicional en dispositivos pequeños */
-text-overflow: ellipsis; /* Agregado para manejo de textos largos */
-overflow: hidden; /* Oculta texto que desborde */
-white-space: nowrap; /* Previene quiebres en múltiples líneas */
+  background-color: transparent;
+  color: rgb(106, 63, 207);
+  padding: 15px 30px;
+  font-size: 20px;
+  border: 2px solid rgb(106, 63, 207);
+  border-radius: 10px;
+  cursor: pointer;
+  width: 90%;
+  text-align: left;
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .addGoalButton::before {
-content: ''; /* Pseudo-elemento para crear el borde animado */
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-border-radius: 10px;
-background: linear-gradient(45deg, rgb(157, 102, 239), rgb(162, 119, 212)); /* Degradado animado de color violeta a rosa */
-z-index: -1; /* Coloca el borde detrás del texto */
-opacity: 0; /* Inicialmente invisible */
-transition: opacity 0.4s ease; /* Transición suave para la visibilidad */
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(45deg, rgb(157, 102, 239), rgb(162, 119, 212));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .addGoalButton:hover {
-background-color: rgb(106, 63, 207); /* Fondo violeta al pasar el ratón */
-color: white; /* Texto blanco al pasar el ratón */
-border-color: rgb(106, 63, 207); /* El borde se mantiene violeta */
-box-shadow: 0 0 15px rgb(106, 63, 207); /* Sombra brillante al pasar el ratón */
-transform: translateY(-5px); /* Sube ligeramente el botón para un efecto de flotante */
+  background-color: rgb(106, 63, 207);
+  color: white;
+  border-color: rgb(106, 63, 207);
+  box-shadow: 0 0 15px rgb(106, 63, 207);
+  transform: translateY(-5px);
 }
 
 .addGoalButton:hover::before {
-opacity: 1; /* El borde animado aparece al pasar el ratón */
+  opacity: 1;
 }
 
 .addGoalButton:active {
-transform: translateY(2px); /* Efecto de presión al hacer clic */
-box-shadow: 0 0 10px rgba(236, 123, 236, 0.5); /* Sombra más suave cuando se hace clic */
+  transform: translateY(2px);
+  box-shadow: 0 0 10px rgba(236, 123, 236, 0.5);
 }
 
-.submitButton {
-background-color: rgba(100, 44, 163, 0.8); /* violeta suave */
-color: white;
-padding: 14px 24px; /* Mayor espaciado */
-font-size: 18px; /* Tamaño de fuente un poco mayor */
-border: none;
-border-radius: 30px; /* Bordes parcialmente redondeados */
-cursor: pointer;
-width: 48%; /* Los botones ocupan el 48% del contenedor */
-transition: background-color 0.3s ease;
-text-align: center;
-margin: 0 2%; /* Espaciado entre los botones */
+.submitButton, .cancelButton {
+  background-color: rgba(100, 44, 163, 0.8);
+  color: white;
+  padding: 14px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  width: 48%;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  margin: 0 2%;
 }
 
 .submitButton:hover {
-background-color: #444141; /* violeta más oscuro al pasar el cursor */
-color: #ffffff;
+  background-color: #444141;
 }
 
 .cancelButton {
-  background-color: #7a12a6; /* violeta */
-  color: white;
-  padding: 14px 24px; /* Mayor espaciado */
-  font-size: 18px; /* Tamaño de fuente un poco mayor */
-  border: none;
-  border-radius: 30px; /* Bordes parcialmente redondeados */
-  cursor: pointer;
-  width: 48%; /* Los botones ocupan el 48% del contenedor */
-  transition: background-color 0.3s ease;
-  text-align: center;
-  margin: 0 2%; /* Espaciado entre los botones */
+  background-color: #7a12a6;
 }
 
 .cancelButton:hover {
-background-color: #540457; /*  violeta más oscuro al pasar el cursor */
-color: #e1c2f0;
+  background-color: #540457;
+  color: #e1c2f0;
 }
 
 .DialogContent {
-display: flex;
-flex-direction: column;
-gap: 15px;
-padding: 25px;
-width: 400px;
-margin: auto;
-background-color: #fff;
-border-radius: 12px;
-animation: fadeIn 0.6s ease-in-out; /* Efecto de entrada despacio */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 25px;
+  width: 400px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  animation: fadeIn 0.6s ease-in-out;
+  
 }
 
 .dialog {
-padding: 20px; /* Espacio alrededor del contenedor */
-width: 100%;
-border-radius: 8px;
-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más suave */
-background-color: white;
-animation: slideUp 0.6s ease-in-out; /* Efecto de entrada desde abajo hacia arriba */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  animation: slideUp 0.6s ease-in-out;
 }
 
 .DialogActions {
-display: flex;
-justify-content: space-between; /* Los botones estarán alineados uno al lado del otro */
-gap: 10px; /* Espacio entre los botones */
-margin-top: 10px; /* Espacio entre los botones y el formulario */
-margin-bottom: 20px; /* Espacio abajo */
-padding: 0 20px; /* Padding para los botones */
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 0 20px;
 }
 
 .DialogActions button {
-width: 48%; /* Asegura que cada botón ocupe el 48% del espacio disponible */
+  width: 48%;
 }
 
 .DialogTitle {
-
-  font-size: 2rem;
+  font-size: 30px;
   font-weight: bold;
   color: #4b4b4b;
   margin-bottom: 1rem;
-  widows: 2;
-  orphans: 2;
-  hyphens: auto;
-font-size: 30px; /* Título más grande */
-animation: fadeIn 0.6s ease-in-out; /* Efecto de entrada despacio */
-position: relative; /* Para usar transform y mover el título */
-top: 4px; /* Mueve el título 4px hacia abajo */
-}
-
-/* Animación de brillo suave */
-@keyframes glow {
-0% {
-  text-shadow: 0 4px 5px rgba(106, 63, 207, 0.3), 0 5px 10px rgba(106, 63, 207, 0.2);
-}
-50% {
-  text-shadow: 0 4px 10px rgba(106, 63, 207, 0.4), 0 6px 15px rgba(106, 63, 207, 0.3);
-}
-100% {
-  text-shadow: 0 4px 5px rgba(106, 63, 207, 0.3), 0 5px 10px rgba(106, 63, 207, 0.2);
-}
+  animation: fadeIn 0.6s ease-in-out;
+  position: relative;
+  top: 4px;
 }
 
 .DialogTitle:hover {
-animation: glow 1.5s infinite alternate; /* Brillo suave intermitente al pasar el ratón */
+  animation: glow 1.5s infinite alternate;
 }
 
-/* Efecto de entrada gradual para la animación */
+@keyframes glow {
+  0% {
+    text-shadow: 0 4px 5px rgba(106, 63, 207, 0.3), 0 5px 10px rgba(106, 63, 207, 0.2);
+  }
+  50% {
+    text-shadow: 0 4px 10px rgba(106, 63, 207, 0.4), 0 6px 15px rgba(106, 63, 207, 0.3);
+  }
+  100% {
+    text-shadow: 0 4px 5px rgba(106, 63, 207, 0.3), 0 5px 10px rgba(106, 63, 207, 0.2);
+  }
+}
+
 @keyframes slideUp {
-from {
-  opacity: 0;
-  transform: translateY(50px); /* Se mueve desde abajo */
-}
-to {
-  opacity: 1;
-  transform: translateY(0); /* Termina en su posición normal */
-}
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
-from {
-  opacity: 0;
-}
-to {
-  opacity: 1;
-}
-}
-
-.dueDateLabel {
-margin-top: 0; /* Reducido para acercar la etiqueta "Due date" */
-margin-bottom: 0; /* Elimina el margen inferior para pegarlas más */
-display: inline-block; /* Asegura que la etiqueta y el campo estén alineados */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.dueDateInput {
-margin-top: 0px; /* Elimina el margen superior */
-margin-bottom: 0px; /* Elimina el margen inferior para pegar el campo de entrada de fecha */
+.dueDateLabel, .dueDateInput {
+  margin: 0;
 }
 
-/* Ajuste adicional para los campos de fecha */
-.MuiInputBase-root {
-margin-top: 0 !important; /* Elimina el margen superior para los inputs */
+.MuiInputBase-root, .MuiInputLabel-root {
+  margin-top: 0 !important;
 }
-
-.MuiInputLabel-root {
-margin-top: 0 !important; /* Elimina el margen superior para las etiquetas */
-}
-
-@media (max-width: 600px) {
-
-}
-

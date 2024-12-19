@@ -3,7 +3,7 @@
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0 auto 30px;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 25%;
@@ -115,7 +115,7 @@
 @media (max-width: 798px) {
   .goalCard {
     width: 100%;
-    margin: 20px auto;
+    margin: 20px;
   }
 
   .goalCardHeading h3 {

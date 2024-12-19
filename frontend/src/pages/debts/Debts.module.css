@@ -1,21 +1,34 @@
+.mainDebts {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 2rem;
+    box-sizing: border-box;
+    background: linear-gradient(to right, #E8D8F9, #D3A9F5, #E8D8F9, #D3A9F5, #E8D8F9);
+}
+
 .container {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
     padding: 2rem;
     box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0; /* Asegura que no haya margen adicional abajo */
 }
 
 .introText {
     width: 100%;
     max-width: 800px;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1rem; /* Tamaño base para textos */
+    line-height: 1.5;
 }
 
-.introText h1 {
+.introText h3 {
     font-size: 2rem;
     font-weight: bold;
     color: #4b4b4b;
@@ -34,7 +47,6 @@
 .card {
     width: 80%;
     min-width: 300px;
-    max-width: 100%; /* Ajuste para asegurar que no se expanda demasiado */
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 2rem;
@@ -45,7 +57,7 @@
 }
 
 .card:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
     box-shadow: 0 8px 16px rgba(128, 0, 128, 0.2);
 }
 
@@ -56,15 +68,30 @@ h2 {
     color: #4b4b4b;
 }
 
+.debtsTableInfo {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra la tabla dentro del contenedor */
+}
+
+.debtsTableWrapper {
+    width: 100%;
+    max-width: 1100%; /* Ajusta este valor según el tamaño máximo que desees */
+    overflow-x: auto; /* Permite el desplazamiento horizontal si la tabla es demasiado ancha */
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
 .debtsTable {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
+    margin-top: 2rem; /* Asegura que la tabla se ponga debajo de los otros elementos */
 }
 
-.debtsTable th, .debtsTable td {
+.debtsTable th,
+.debtsTable td {
     border: 1px solid #ddd;
-    padding: 8px 12px;
+    padding: 12px 15px;
     text-align: left;
     font-size: 1rem;
 }
@@ -101,7 +128,8 @@ h2 {
     color: #333;
 }
 
-.inputGroup input, .inputGroup select {
+.inputGroup input,
+.inputGroup select {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -111,7 +139,8 @@ h2 {
     transition: border 0.3s ease;
 }
 
-.inputGroup input:focus, .inputGroup select:focus {
+.inputGroup input:focus,
+.inputGroup select:focus {
     border-color: #8e44ad;
     outline: none;
 }
@@ -143,18 +172,32 @@ h2 {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-    .card {
-        width: 90%; /* Asegura que el tamaño de la tarjeta se ajuste en pantallas medianas */
+@media (max-width: 915px) and (min-width: 380px) {
+    .container {
         padding: 1.5rem;
+        flex-direction: column;
     }
 
-    .debtsTable th, .debtsTable td {
+    .card {
+        width: 90%;
+        padding: 2rem;
+    }
+
+    .debtsTable th,
+    .debtsTable td {
         font-size: 0.9rem;
-        padding: 8px;
+        padding: 10px;
     }
 
-    .inputGroup input, .inputGroup select {
+    .debtsTable {
+        overflow-x: auto;
+        display: block;
+        justify-content: center;
+    }
+
+
+    .inputGroup input,
+    .inputGroup select {
         font-size: 0.9rem;
         padding: 10px;
     }
@@ -165,37 +208,83 @@ h2 {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 380px) {
     .container {
+        flex-direction: column;
+        align-items: center;
         padding: 1rem;
     }
 
     .card {
-        width: 90%; /* Ocupa el 100% del contenedor en pantallas más pequeñas */
-        margin-bottom: 1rem;
+        width: 90%;
+        margin: 1rem 0;
+    }
+
+    .inputGroup input,
+    .inputGroup select {
+        padding: 12px;
+    }
+
+    .debtsTableWrapper {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .button {
+        padding: 14px;
+    }
+
+    .introText h3 {
+        font-size: 1.8rem;
+    }
+
+    .introText p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .debtsTable {
+        overflow-x: auto;
+        display: block;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 200px) {
+    .container {
+        min-width: 90%;
+        padding: 0.5rem;
+    }
+
+    .card {
+        min-width: 90%;
         padding: 1rem;
+        margin: 1rem 0;
     }
 
-    .debtsTable th, .debtsTable td {
-        font-size: 0.8rem;
-        padding: 6px 8px;
+    .debtsTable th,
+    .debtsTable td {
+        font-size: 0.9rem;
+        padding: 8px;
     }
 
-    .inputGroup input, .inputGroup select {
+    .inputGroup input,
+    .inputGroup select {
         font-size: 0.9rem;
         padding: 8px;
     }
 
     .button {
-        padding: 10px;
+        padding: 12px;
+        font-size: 0.9rem;
     }
 
-    .introText h1 {
-        font-size: 1.8rem;
+    .introText h3 {
+        font-size: 1.6rem;
     }
 
     .introText p {
         font-size: 0.9rem;
-        line-height: 1.6;
+        line-height: 1.5;
     }
 }

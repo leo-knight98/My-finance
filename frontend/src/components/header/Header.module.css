@@ -15,7 +15,7 @@
     z-index: 1;
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
     height: 120px; /* Altura ajustada */
-    width: 100%; /* Ahora ocupa todo el ancho de la pantalla */
+    max-width: 100%; /* Ahora ocupa todo el ancho de la pantalla */
     padding: 15px 100px; /* Espaciado aumentado para control más dinámico */
     background-size: 300% 300%; /* Degradado más fluido */
 }
@@ -58,6 +58,7 @@
     -webkit-text-fill-color: transparent;
     animation: textGlow 2s ease-in-out infinite; /* Animación de resplandor más suave */
     display: inline-block;
+    flex-wrap: nowrap;
     text-align: left; /* Alineamos el texto a la izquierda */
     position: relative;
     z-index: 2; /* Para mantenerlo por encima de otros elementos */
