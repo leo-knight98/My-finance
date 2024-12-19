@@ -6,7 +6,7 @@
   transform: translateY(50px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   width: 80vw;
-  height: 100vh;
+  height:100vh;
   padding: 50px;
   color: #712584;
   font-family: 'Montserrat', sans-serif;
@@ -192,7 +192,23 @@ ul li, ol li {
     width: 70vw;
     height: 100vh;
     font-size: 4vw;
+    height:150vh;
   }
+
+  .sectionTitle {
+    font-size: 8vw;
+  }
+
+  .sectionText {
+    font-size: 12vw;
+  }
+}
+
+
+@media (max-width: 390px) and (min-width: 100px) {
+  .section {
+    padding-bottom:10px;
+    width: 70vw;}
 
   .sectionTitle {
     font-size: 15vw;
@@ -202,3 +218,4 @@ ul li, ol li {
     font-size: 12vw;
   }
 }
+
